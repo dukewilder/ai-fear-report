@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-02",
+ "headline": "California: new authority over AI or data centers for a government body",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCalifornia gives the Department of Motor Vehicles the power to demand quarterly crash and response-time data from autonomous vehicle manufacturers, starting July 1, 2028. Passed.\n\n13 measures in ten states would have an AI service check the identity or age of the people who use it.\n\n91 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.\n\n2,235 measures tracked. 752 carry a control, and they would hand new power to 102 offices.",
+ "image": "state/brief/2026-10-02.png",
+ "alt": "A card from the AI Fear Report headed: California: new authority over AI or data centers for a government body. California gives the Department of Motor Vehicles the power to demand quarterly crash and response-time data from autonomous vehicle manufacturers, starting July 1, 2028. Held by California Commission on Peace Officer Standards and Training. 13 measures in ten states would have an AI service check the identity or age of the people who use it. 91 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+ "lines": [
+  {
+   "target": "os-84856a8a-5cff-41ee-9237-9f569454b676",
+   "sentence": "California gives the Department of Motor Vehicles the power to demand quarterly crash and response-time data from autonomous vehicle manufacturers, starting July 1, 2028.",
+   "quote": "autonomous vehicle manufacturers to provide this data to the department quarterly",
+   "office": "California Commission on Peace Officer Standards and Training",
+   "controls": "mandatory-reporting|new-agency-powers",
+   "fears": "",
+   "jurisdiction": "California",
+   "url": "https://openstates.org/ca/bills/20252026/SB1246/",
+   "status": "passed",
+   "action": "Chaptered by Secretary of State. Chapter 1021, Statutes of 2026.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:id-age-checks:13",
+   "sentence": "13 measures in ten states would have an AI service check the identity or age of the people who use it.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "ID checks for users",
+   "head": "13 measures in ten states: ID checks on people who use AI",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:power-bills:91",
+   "sentence": "91 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Power bills and data centers",
+   "head": "91 measures name the same fear: Power bills and data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2235,
+  "controlled": 752,
+  "offices": 102
+ }
+}
