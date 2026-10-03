@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-03",
+ "headline": "New Jersey would give DEP data center study power",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nNew Jersey would give DEP the power to study environmental impacts of data center development and bar construction of new data centers until that study is complete. Not passed. It cites the fear that data centers are taking the power and the water.\n\n122 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.\n\n80 measures in 30 jurisdictions cite the fear that an algorithm decides what people pay.\n\n2,238 measures tracked. 754 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-10-03.png",
+ "alt": "A card from the AI Fear Report headed: New Jersey would give DEP data center study power. New Jersey would give DEP the power to study environmental impacts of data center development and bar construction of new data centers until that study is complete. 122 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them. 80 measures in 30 jurisdictions cite the fear that an algorithm decides what people pay.",
+ "lines": [
+  {
+   "target": "os-d912f014-7a9e-4db6-a07c-d512720959b4",
+   "sentence": "New Jersey would give DEP the power to study environmental impacts of data center development and bar construction of new data centers until that study is complete.",
+   "quote": "conduct study on environmental impacts of data center development in State; prohibits construction of new data centers until study is complete",
+   "office": "",
+   "controls": "data-center-limits",
+   "fears": "power-bills",
+   "jurisdiction": "New Jersey",
+   "url": "https://openstates.org/nj/bills/222/S4659/",
+   "status": "pending",
+   "action": "Introduced in the Senate, Referred to Senate Environment and Energy Committee",
+   "kind": "bill"
+  },
+  {
+   "target": "control:data-center-limits:122",
+   "sentence": "122 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Data center limits",
+   "head": "122 measures in 33 jurisdictions: limits on building data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:algorithmic-pricing:80",
+   "sentence": "80 measures in 30 jurisdictions cite the fear that an algorithm decides what people pay.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Algorithmic pricing",
+   "head": "80 measures name the same fear: Algorithmic pricing",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2238,
+  "controlled": 754,
+  "offices": 101
+ }
+}

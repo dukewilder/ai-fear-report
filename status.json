@@ -1,0 +1,114 @@
+{
+ "fedreg": {
+  "source": "fedreg",
+  "last_run": "2026-10-03T19:22:53+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "10 documents read since 2026-10-03",
+  "last_ok": "2026-10-03T19:22:53+00:00"
+ },
+ "fec": {
+  "source": "fec",
+  "last_run": "2026-10-03T06:15:22+00:00",
+  "ok": 1,
+  "added": 143,
+  "message": "Leading the Future -> LEADING THE FUTURE (C00916114); Public First -> PUBLIC FIRST (C00930503); Public First -> PUBLIC FIRST ACTION INC. (C30003586); swept the register: 3 not on the list (HUMANITY ABOVE ARTIFICIAL INTELLIGENCE PAC (C00946855); THE AI POLICY NETWORK INC AIPN PAC INC (C00904532); C3.AI INC. PAC (C00750026))",
+  "last_ok": "2026-10-03T06:15:22+00:00"
+ },
+ "wikipedia": {
+  "source": "wikipedia",
+  "last_run": "2026-10-03T06:15:28+00:00",
+  "ok": 1,
+  "added": 170,
+  "message": "ok",
+  "last_ok": "2026-10-03T06:15:28+00:00"
+ },
+ "gdelt": {
+  "source": "gdelt",
+  "last_run": "2026-10-03T19:21:22+00:00",
+  "ok": 1,
+  "added": 620,
+  "message": "620 articles and 0 volume series read for 17 fears, starting at ai-therapists; ai-therapists: rate limited by GDELT; bias: rate limited by GDELT; ai-care-decisions: rate limited by GDELT; privacy: rate limited by GDELT; copyright: rate limited by GDELT; surveillance: rate limited by GDELT; ai-companions: rate limited by GDELT; self-driving: rate limited by GDELT; loss-of-control: rate limited by GDELT; job-loss: rate limited by GDELT; kids-chatbots: rate limited by GDELT",
+  "last_ok": "2026-10-03T19:21:22+00:00"
+ },
+ "rss": {
+  "source": "rss",
+  "last_run": "2026-10-03T19:22:48+00:00",
+  "ok": 1,
+  "added": 222,
+  "message": "35 feeds read; skipped 22 undated entries; no feed published by 8: Anthropic, xAI, Andreessen Horowitz, Leading the Future, Build American AI, Center for AI Policy, Center for a New American Security, Cato Institute; feed would not load for 2: American Enterprise Institute (HttpError), Samsung (HttpError)",
+  "last_ok": "2026-10-03T19:22:48+00:00"
+ },
+ "tag": {
+  "source": "tag",
+  "last_run": "2026-10-03T19:22:55+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "0 tagged, 0 errors, 0 still queued, 4 of 4000 today; checked 0 labels, took off 0",
+  "last_ok": "2026-10-03T19:22:55+00:00"
+ },
+ "congress": {
+  "source": "congress",
+  "last_run": "2026-10-03T06:12:19+00:00",
+  "ok": 1,
+  "added": 1,
+  "message": "1 AI-titled bills checked, and 0 more found by their summaries",
+  "last_ok": "2026-10-03T06:12:19+00:00"
+ },
+ "openstates": {
+  "source": "openstates",
+  "last_run": "2026-10-03T06:14:16+00:00",
+  "ok": 1,
+  "added": 11,
+  "message": "12 bills read in 19 requests",
+  "last_ok": "2026-10-03T06:14:16+00:00"
+ },
+ "lda": {
+  "source": "lda",
+  "last_run": "2026-10-03T06:14:46+00:00",
+  "ok": 1,
+  "added": 69,
+  "message": "473 filings read for 2026-2026",
+  "last_ok": "2026-10-03T06:14:46+00:00"
+ },
+ "news": {
+  "source": "news",
+  "last_run": "2026-10-03T19:21:37+00:00",
+  "ok": 1,
+  "added": 24,
+  "message": "22 of 415 stories matched a fear, from 16 feeds",
+  "last_ok": "2026-10-03T19:21:37+00:00"
+ },
+ "blindspots": {
+  "source": "blindspots",
+  "last_run": "2026-10-03T06:15:33+00:00",
+  "ok": 1,
+  "added": 25,
+  "message": "323 of 421 untagged measures match no fear at all; 25 subjects the 17 do not name; recall gaps: self-driving 34, power-bills 25, copyright 8; sponsors' words not yet refused: consumer, government, standards, security, risk, fair",
+  "last_ok": "2026-10-03T06:15:33+00:00"
+ },
+ "review": {
+  "source": "review",
+  "last_run": "2026-10-03T06:15:33+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "this week's list (2026-W40) is already out",
+  "last_ok": "2026-10-03T06:15:33+00:00"
+ },
+ "candidates": {
+  "source": "candidates",
+  "last_run": "2026-10-03T06:17:25+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "8 candidates measured, 0 above the lowest fear followed; news still to read for 2; ai-cyberattacks: rate limited; ai-slop: rate limited",
+  "last_ok": "2026-10-03T06:17:25+00:00"
+ },
+ "texts": {
+  "source": "texts",
+  "last_run": "2026-10-03T19:22:54+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "105 laws with a summary under 25 words; 83 of them read from their text",
+  "last_ok": "2026-10-03T19:22:54+00:00"
+ }
+}
