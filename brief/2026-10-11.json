@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-11",
+ "headline": "Pennsylvania would let Attorney General penalize AI requirement violators",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nPennsylvania would give the Attorney General the power to penalize frontier developers that violate requirements for the artificial intelligence they create. Not passed.\n\n171 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.\n\n29 measures in 18 jurisdictions cite the fear that AI is taking people's personal data.\n\n2,248 measures tracked. 756 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-11.png",
+ "alt": "A card from the AI Fear Report headed: Pennsylvania would let Attorney General penalize AI requirement violators. Pennsylvania would give the Attorney General the power to penalize frontier developers that violate requirements for the artificial intelligence they create. Held by Pennsylvania Attorney General. 171 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on. 29 measures in 18 jurisdictions cite the fear that AI is taking people's personal data.",
+ "lines": [
+  {
+   "target": "os-221dfe4b-36e4-4582-8a4d-78e13bdafd6a",
+   "sentence": "Pennsylvania would give the Attorney General the power to penalize frontier developers that violate requirements for the artificial intelligence they create.",
+   "quote": "imposing duties on the Pennsylvania Emergency Management Agency and the Attorney General; and imposing penalties",
+   "office": "Pennsylvania Attorney General",
+   "controls": "new-agency-powers",
+   "fears": "",
+   "jurisdiction": "Pennsylvania",
+   "url": "https://openstates.org/pa/bills/2025-2026/HB2829/",
+   "status": "pending",
+   "action": "Referred to Communications & Technology",
+   "kind": "bill"
+  },
+  {
+   "target": "control:labeling-mandates:171",
+   "sentence": "171 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Label or AI notice",
+   "head": "171 measures in 40 jurisdictions: labels and notices of AI use",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:privacy:29",
+   "sentence": "29 measures in 18 jurisdictions cite the fear that AI is taking people's personal data.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Privacy and personal data",
+   "head": "29 measures name the same fear: Privacy and personal data",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2248,
+  "controlled": 756,
+  "offices": 100
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-04",
+ "headline": "Congress would bar AI chatbots for minors without limits",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCongress would bar artificial intelligence chatbots from being offered to minors without age-based design limits. Not passed. It cites the fear that children are talking to chatbots.\n\n381 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime.\n\n61 measures in 27 jurisdictions cite the fear that children are talking to chatbots.\n\n2,239 measures tracked. 754 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-10-04.png",
+ "alt": "A card from the AI Fear Report headed: Congress would bar AI chatbots for minors without limits. Congress would bar artificial intelligence chatbots from being offered to minors without age-based design limits. 381 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime. 61 measures in 27 jurisdictions cite the fear that children are talking to chatbots.",
+ "lines": [
+  {
+   "target": "us-119-hr-10719",
+   "sentence": "Congress would bar artificial intelligence chatbots from being offered to minors without age-based design limits.",
+   "quote": "age-appropriate design standards and safety safeguards for artificial intelligence chatbots accessed by minors",
+   "office": "",
+   "controls": "use-restrictions",
+   "fears": "kids-chatbots",
+   "jurisdiction": "Congress",
+   "url": "https://www.congress.gov/bill/119th-congress/house-bill/10719",
+   "status": "pending",
+   "action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:use-restrictions:381",
+   "sentence": "381 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Use limits",
+   "head": "381 measures in 48 jurisdictions: bans and limits on uses of AI",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:kids-chatbots:61",
+   "sentence": "61 measures in 27 jurisdictions cite the fear that children are talking to chatbots.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Kids and chatbots",
+   "head": "61 measures name the same fear: Kids and chatbots",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2239,
+  "controlled": 754,
+  "offices": 101
+ }
+}
