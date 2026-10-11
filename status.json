@@ -1,0 +1,114 @@
+{
+ "fedreg": {
+  "source": "fedreg",
+  "last_run": "2026-10-11T04:41:14+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "17 documents read since 2026-10-11",
+  "last_ok": "2026-10-11T04:41:14+00:00"
+ },
+ "fec": {
+  "source": "fec",
+  "last_run": "2026-10-11T00:12:57+00:00",
+  "ok": 1,
+  "added": 111,
+  "message": "Leading the Future -> LEADING THE FUTURE (C00916114); Public First -> PUBLIC FIRST (C00930503); Public First -> PUBLIC FIRST ACTION INC. (C30003586); swept the register: 3 not on the list (HUMANITY ABOVE ARTIFICIAL INTELLIGENCE PAC (C00946855); THE AI POLICY NETWORK INC AIPN PAC INC (C00904532); MICHIGANDERS AGAINST DATA CENTERS (C00961466))",
+  "last_ok": "2026-10-11T00:12:57+00:00"
+ },
+ "wikipedia": {
+  "source": "wikipedia",
+  "last_run": "2026-10-11T00:13:04+00:00",
+  "ok": 1,
+  "added": 153,
+  "message": "ok",
+  "last_ok": "2026-10-11T00:13:04+00:00"
+ },
+ "gdelt": {
+  "source": "gdelt",
+  "last_run": "2026-10-11T04:39:42+00:00",
+  "ok": 1,
+  "added": 2,
+  "message": "2 articles and 0 volume series read for 16 fears, starting at kids-chatbots; 1 fears left for the next run; kids-chatbots: rate limited by GDELT; deepfakes: rate limited by GDELT; ai-care-decisions: rate limited by GDELT; surveillance: rate limited by GDELT; algorithmic-pricing: rate limited by GDELT; ai-scams: rate limited by GDELT; misinformation: rate limited by GDELT; self-driving: rate limited by GDELT; loss-of-control: rate limited by GDELT; china-race: rate limited by GDELT; job-loss: rate limited by GDELT",
+  "last_ok": "2026-10-11T04:39:42+00:00"
+ },
+ "rss": {
+  "source": "rss",
+  "last_run": "2026-10-11T04:41:09+00:00",
+  "ok": 1,
+  "added": 228,
+  "message": "35 feeds read; skipped 22 undated entries; no feed published by 8: Anthropic, xAI, Andreessen Horowitz, Leading the Future, Build American AI, Center for AI Policy, Center for a New American Security, Cato Institute; feed would not load for 2: American Enterprise Institute (HttpError), Samsung (HttpError)",
+  "last_ok": "2026-10-11T04:41:09+00:00"
+ },
+ "tag": {
+  "source": "tag",
+  "last_run": "2026-10-11T04:41:16+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "0 tagged, 0 errors, 0 still queued, 1 of 4000 today; checked 0 labels, took off 0",
+  "last_ok": "2026-10-11T04:41:16+00:00"
+ },
+ "congress": {
+  "source": "congress",
+  "last_run": "2026-10-11T00:10:13+00:00",
+  "ok": 1,
+  "added": 4,
+  "message": "4 AI-titled bills checked, and 0 more found by their summaries",
+  "last_ok": "2026-10-11T00:10:13+00:00"
+ },
+ "openstates": {
+  "source": "openstates",
+  "last_run": "2026-10-11T00:12:21+00:00",
+  "ok": 1,
+  "added": 6,
+  "message": "9 bills read in 16 requests",
+  "last_ok": "2026-10-11T00:12:21+00:00"
+ },
+ "lda": {
+  "source": "lda",
+  "last_run": "2026-10-11T03:01:19+00:00",
+  "ok": 0,
+  "added": 0,
+  "message": "HttpError: HTTP 0 for https://lda.gov/api/v1/filings/?filing_specific_lobbying_issues=data+center&filing_year=2026&ordering=-dt_posted&page=13&page_size=25: ReadTimeout: HTTPSConnectionPool(host='lda.gov', port=443): Read timed out. (read timeout=60)",
+  "last_ok": "2026-10-10T00:15:48+00:00"
+ },
+ "news": {
+  "source": "news",
+  "last_run": "2026-10-11T04:39:59+00:00",
+  "ok": 1,
+  "added": 30,
+  "message": "25 of 412 stories matched a fear, from 16 feeds",
+  "last_ok": "2026-10-11T04:39:59+00:00"
+ },
+ "blindspots": {
+  "source": "blindspots",
+  "last_run": "2026-10-10T06:17:21+00:00",
+  "ok": 1,
+  "added": 25,
+  "message": "326 of 424 untagged measures match no fear at all; 25 subjects the 17 do not name; recall gaps: self-driving 34, power-bills 25, copyright 8; sponsors' words not yet refused: consumer, government, standards, security, risk, fair",
+  "last_ok": "2026-10-10T06:17:21+00:00"
+ },
+ "review": {
+  "source": "review",
+  "last_run": "2026-10-10T06:17:21+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "this week's list (2026-W41) is already out",
+  "last_ok": "2026-10-10T06:17:21+00:00"
+ },
+ "candidates": {
+  "source": "candidates",
+  "last_run": "2026-10-10T06:21:39+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "8 candidates measured, 0 above the lowest fear followed; news still to read for 8; ai-cyberattacks: rate limited; bioweapons: rate limited; ai-weapons: rate limited; addictive-feeds: rate limited",
+  "last_ok": "2026-10-10T06:21:39+00:00"
+ },
+ "texts": {
+  "source": "texts",
+  "last_run": "2026-10-11T04:41:15+00:00",
+  "ok": 1,
+  "added": 0,
+  "message": "105 laws with a summary under 25 words; 83 of them read from their text",
+  "last_ok": "2026-10-11T04:41:15+00:00"
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-05",
+ "headline": "Pennsylvania: new authority over AI or data centers for a government body",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nPennsylvania would give the Department of Health, Insurance Department, and Department of Human Services the power to regulate artificial intelligence use by facilities, insurers, and MA or CHIP plans. Not passed.\n\n169 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.\n\n29 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.\n\n2,239 measures tracked. 754 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-10-05.png",
+ "alt": "A card from the AI Fear Report headed: Pennsylvania: new authority over AI or data centers for a government body. Pennsylvania would give the Department of Health, Insurance Department, and Department of Human Services the power to regulate artificial intelligence use by facilities, insurers, and MA or CHIP plans. Held by Pennsylvania Department of Health. 169 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on. 29 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.",
+ "lines": [
+  {
+   "target": "os-825a53d6-05b6-42a5-ad1e-11c5afbcbced",
+   "sentence": "Pennsylvania would give the Department of Health, Insurance Department, and Department of Human Services the power to regulate artificial intelligence use by facilities, insurers, and MA or CHIP plans.",
+   "quote": "providing for artificial intelligence in facilities, for artificial intelligence use by insurers and for artificial intelligence use by MA or CHIP managed care plans",
+   "office": "Pennsylvania Department of Health",
+   "controls": "new-agency-powers",
+   "fears": "",
+   "jurisdiction": "Pennsylvania",
+   "url": "https://openstates.org/pa/bills/2025-2026/HB1925/",
+   "status": "pending",
+   "action": "Third consideration and final passage",
+   "kind": "bill"
+  },
+  {
+   "target": "control:labeling-mandates:169",
+   "sentence": "169 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Label or AI notice",
+   "head": "169 measures in 40 jurisdictions: labels and notices of AI use",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:job-loss:29",
+   "sentence": "29 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Job loss",
+   "head": "29 measures name the same fear: Job loss",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2239,
+  "controlled": 754,
+  "offices": 101
+ }
+}
