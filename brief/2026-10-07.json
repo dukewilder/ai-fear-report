@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-07",
+ "headline": "Labor Commissioner can enforce ban on automated decision systems",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCalifornia gives the Labor Commissioner the power to enforce prohibitions on employer use of automated decision systems in disciplinary or termination decisions. Passed.\n\n14 measures in 11 jurisdictions would have an AI service check the identity or age of the people who use it.\n\n23 measures in 14 jurisdictions cite the fear that chatbots are standing in for friends and partners.\n\n2,242 measures tracked. 757 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-10-07.png",
+ "alt": "A card from the AI Fear Report headed: Labor Commissioner can enforce ban on automated decision systems. California gives the Labor Commissioner the power to enforce prohibitions on employer use of automated decision systems in disciplinary or termination decisions. Held by California Labor Commissioner. 14 measures in 11 jurisdictions would have an AI service check the identity or age of the people who use it. 23 measures in 14 jurisdictions cite the fear that chatbots are standing in for friends and partners.",
+ "lines": [
+  {
+   "target": "os-d07777e7-a081-4f49-8a27-ce015e1b8268",
+   "sentence": "California gives the Labor Commissioner the power to enforce prohibitions on employer use of automated decision systems in disciplinary or termination decisions.",
+   "quote": "authorize the Labor Commissioner to enforce the bill's provisions",
+   "office": "California Labor Commissioner",
+   "controls": "labeling-mandates|use-restrictions",
+   "fears": "",
+   "jurisdiction": "California",
+   "url": "https://openstates.org/ca/bills/20252026/SB947/",
+   "status": "passed",
+   "action": "Chaptered by Secretary of State. Chapter 859, Statutes of 2026.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:id-age-checks:14",
+   "sentence": "14 measures in 11 jurisdictions would have an AI service check the identity or age of the people who use it.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "ID checks for users",
+   "head": "14 measures in 11 jurisdictions: ID checks on people who use AI",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:ai-companions:23",
+   "sentence": "23 measures in 14 jurisdictions cite the fear that chatbots are standing in for friends and partners.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "AI companions",
+   "head": "23 measures name the same fear: AI companions",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2242,
+  "controlled": 757,
+  "offices": 101
+ }
+}
