@@ -1,0 +1,540 @@
+rank,name,type,lobbying on filings mentioning a tracked fear,fears mentioned
+1,Americans for Responsible Innovation,Advocacy group,1660000,china-race; power-bills
+2,The AI Policy Network,Advocacy group,1045012,china-race; loss-of-control
+3,Encode,Advocacy group,230000,kids-chatbots
+4,Center for AI Safety,Advocacy group,180000,china-race
+5,ControlAI,Advocacy group,150000,loss-of-control
+6,Palisade Research,Advocacy group,130000,loss-of-control
+7,Omidyar Network,Foundation,60000,privacy
+8,The Alliance for Secure AI,Advocacy group,30000,china-race; kids-chatbots; loss-of-control; power-bills; privacy
+9,Common Sense Media,Advocacy group,7000,kids-chatbots
+1,Meta,AI company,27030000,ai-scams; copyright; deepfakes; job-loss; kids-chatbots; power-bills; privacy
+2,Microsoft,AI company,9940000,ai-scams; deepfakes; power-bills; privacy; surveillance
+3,Oracle,AI company,10170000,ai-care-decisions; china-race; power-bills; privacy
+4,RELX,Lobbying client,3080000,ai-care-decisions; copyright; privacy
+5,Recording Industry Association of America,Lobbying client,8349048,copyright
+6,Motorola Solutions,Lobbying client,2140000,privacy; surveillance
+7,Business Roundtable,Trade group,24640000,privacy
+8,T-Mobile USA,Lobbying client,10494000,ai-scams; privacy
+9,Information Technology Industry Council,Trade group,3080000,china-race; power-bills; privacy
+10,Anthropic,AI company,6480000,ai-care-decisions; china-race; copyright; kids-chatbots; loss-of-control; power-bills
+11,Amazon,AI company,18020000,copyright; power-bills; privacy
+12,Comcast,Lobbying client,11770000,copyright; privacy
+13,Salesforce,AI company,3280000,privacy
+14,News/Media Alliance,Lobbying client,1885000,copyright; deepfakes; kids-chatbots; privacy
+15,CoreWeave,Lobbying client,760000,china-race; power-bills
+16,Google,AI company,13010000,ai-scams; deepfakes; job-loss; kids-chatbots; loss-of-control; power-bills; privacy; surveillance
+17,Apple,AI company,11150000,kids-chatbots; privacy
+18,LinkedIn,Lobbying client,970000,kids-chatbots; misinformation; privacy
+19,CTIA,Trade group,14710000,ai-scams; china-race; kids-chatbots; privacy
+20,Pinterest,Lobbying client,500000,deepfakes; kids-chatbots; privacy
+21,Edison Electric Institute,Trade group,8213135,power-bills
+22,Computer and Communications Industry Association,Trade group,400000,china-race; deepfakes; kids-chatbots; misinformation; privacy
+23,U.S. Chamber of Commerce,Trade group,71340000,copyright; power-bills; privacy
+24,American Association for Justice,Trade group,6670000,ai-scams; deepfakes; kids-chatbots; privacy
+25,American Council of Life Insurers,Lobbying client,5111024,bias; privacy
+26,Medtronic,Lobbying client,4720000,ai-care-decisions; privacy
+27,The Northwestern Mutual Life Insurance Company,Lobbying client,4270000,privacy
+28,Uber Technologies,Lobbying client,3800000,privacy
+29,BSA | The Software Alliance,Trade group,1850000,china-race; kids-chatbots; power-bills; privacy
+30,Adobe,AI company,1830000,copyright; deepfakes; misinformation; privacy
+31,Association of American Publishers,Lobbying client,1792713,copyright
+32,Medical Device Manufacturers Association,Lobbying client,1260000,ai-care-decisions; privacy
+33,Mayo Clinic,Lobbying client,1140000,ai-care-decisions
+34,Autodesk,Lobbying client,920000,privacy
+35,Switch,Lobbying client,680000,power-bills
+36,International Alliance of Theatrical Stage Employees,Lobbying client,540000,copyright
+37,Urac,Lobbying client,430000,ai-care-decisions
+38,The Walt Disney Company,Lobbying client,400000,copyright; privacy
+39,The Erisa Industry Committee,Lobbying client,370000,ai-care-decisions; bias; privacy
+40,Epic Systems,Lobbying client,340000,ai-care-decisions; privacy
+41,Doubleverify,Lobbying client,285000,privacy
+42,Association of National Advertisers,Lobbying client,280000,algorithmic-pricing; deepfakes; kids-chatbots; privacy
+43,American Security Fund,Lobbying client,240000,ai-scams; china-race; kids-chatbots
+44,National Fair Housing Alliance,Lobbying client,165910,bias
+45,National Association of Realtors,Lobbying client,73290000,copyright; privacy
+46,AT&T,Telecom,11350000,ai-scams; china-race; deepfakes; kids-chatbots; privacy
+47,American Property Casualty Insurance Association,Lobbying client,6729500,privacy; self-driving
+48,Verizon,Telecom,5990000,ai-scams; china-race; copyright; kids-chatbots; loss-of-control; power-bills; privacy
+49,Accenture,Lobbying client,1720000,power-bills; privacy
+50,Zillow Group,Lobbying client,1620000,privacy
+51,"X Corp. (Formerly Twitter, Inc.)",Lobbying client,610000,kids-chatbots; misinformation; power-bills; privacy
+52,"American Society of Composers, Authors and Publishers (Ascap)",Lobbying client,590000,copyright
+53,Thrivent Financial for Lutherans,Lobbying client,480000,privacy
+54,Portland General Electric,Lobbying client,440000,power-bills
+55,Waymo,Lobbying client,390000,privacy; self-driving
+56,Agility Robotics,Lobbying client,193750,job-loss
+57,Duke Energy,Lobbying client,8550000,power-bills
+58,Paramount Skydance,Lobbying client,6960000,copyright; kids-chatbots; privacy
+59,Technology Network Aka Technet,Lobbying client,1730000,kids-chatbots; privacy; surveillance
+60,Siemens Medical Solutions USA,Lobbying client,1560000,ai-care-decisions; privacy
+61,Regions Financial,Lobbying client,1320000,privacy
+62,Siemens Energy,Lobbying client,680000,power-bills
+63,Sony Pictures Entertainment,Lobbying client,504076,copyright
+64,News,Lobbying client,500000,privacy
+65,Healthcare Leadership Council,Lobbying client,450000,ai-care-decisions
+66,Dropbox,Lobbying client,340000,kids-chatbots; privacy
+67,Eli Lilly and Company,Lobbying client,11818850,ai-care-decisions
+68,Mastercard Worldwide,Lobbying client,5030000,ai-scams
+69,Siemens,Lobbying client,3840000,job-loss; power-bills
+70,Chubb Ina Holdings,Lobbying client,3080000,china-race; privacy
+71,Walmart,Lobbying client,2160000,loss-of-control; privacy
+72,Palo Alto Networks,Lobbying client,960000,loss-of-control; privacy
+73,Spotify,Lobbying client,720000,copyright; privacy
+74,American International Group,Lobbying client,450000,privacy
+75,Vantage Data Centers Management Company,Lobbying client,440000,power-bills
+76,Sap America,Lobbying client,330000,privacy
+77,Maplebear D/B/A Instacart,Lobbying client,240000,privacy
+78,"Notarize, Dba Proof.Com",Lobbying client,230000,ai-scams; privacy
+79,"Healthcare Privacy Forum, Dba Healthcare Trust Institute",Lobbying client,180000,ai-care-decisions; privacy
+80,Lancium,Lobbying client,170000,power-bills
+81,American Medical Association,Trade group,23120000,ai-care-decisions; bias; deepfakes; kids-chatbots; privacy
+82,AHIP,Trade group,15460000,ai-care-decisions; ai-therapists; privacy
+83,American Bankers Association,Lobbying client,11450000,ai-scams; privacy; surveillance
+84,Visa,Lobbying client,8910000,privacy
+85,Johnson & Johnson Services,Lobbying client,8680000,privacy
+86,Constellation Energy Generation,Lobbying client,8340000,power-bills
+87,National Multifamily Housing Council,Lobbying client,8210000,misinformation; privacy
+88,Biotechnology Innovation Organization,Lobbying client,8050000,ai-care-decisions; china-race; copyright; privacy
+89,National Retail Federation,Lobbying client,7600000,kids-chatbots; privacy
+90,Toyota Motor North America (Tma),Lobbying client,6439522,privacy
+91,Nvidia,Chipmaker,6150000,china-race
+92,Dell Technologies,Lobbying client,6080000,privacy
+93,Delta Air Lines,Lobbying client,6010000,privacy
+94,Entertainment Software Association,Lobbying client,5700000,ai-scams; deepfakes; kids-chatbots; privacy
+95,National Association of Children'S Hospitals (N.A.C.H.),Lobbying client,5610000,ai-care-decisions
+96,Software & Information Industry Association,Lobbying client,5533941,china-race; kids-chatbots; privacy
+97,Citigroup Washington,Lobbying client,5390000,china-race
+98,Blue Cross and Blue Shield Association,Lobbying client,5190000,ai-care-decisions; ai-therapists; privacy
+99,Managed Funds Association,Lobbying client,5130000,china-race; privacy
+100,OpenAI,AI company,4640000,copyright; loss-of-control; privacy
+101,Disney Worldwide Services,Lobbying client,4390000,copyright
+102,iHeartMedia,Lobbying client,4123425,copyright
+103,Advanced Medical Technology Assn,Lobbying client,4093000,ai-care-decisions; china-race; privacy
+104,Hewlett Packard Enterprise Company & Affiliates,Lobbying client,3560000,loss-of-control
+105,American Honda Motor Co.,Lobbying client,3402073,self-driving
+106,Allstate Insurance Company,Lobbying client,3390000,privacy
+107,AFL-CIO,Union,3320000,bias; china-race; job-loss; kids-chatbots; power-bills
+108,Dominion Energy,Lobbying client,3080000,power-bills
+109,National Apartment Association,Lobbying client,2940000,bias; privacy
+110,Intel,Chipmaker,2940000,china-race
+111,Lumen Technologies,Lobbying client,2920000,power-bills
+112,American Civil Liberties Union,Lobbying client,2860000,ai-care-decisions; ai-scams; kids-chatbots; misinformation; privacy; surveillance
+113,Taiwan Semiconductor Manufacturing Company (Tsmc),Lobbying client,2680000,china-race
+114,Entergy Services,Lobbying client,2560000,power-bills
+115,Motion Picture Association,Lobbying client,2550000,ai-scams; copyright; deepfakes; kids-chatbots; privacy
+116,Universal Music Group,Lobbying client,2550000,copyright; deepfakes; privacy
+117,Association of American Medical Colleges,Lobbying client,2538999,ai-care-decisions; ai-therapists; bias
+118,Alliance of Community Health Plans,Lobbying client,2450000,ai-care-decisions; ai-therapists
+119,PayPal,Lobbying client,2353000,ai-scams; privacy
+120,"American Electric Power Company, and Affiliated Corporations",Lobbying client,2319000,power-bills
+121,"Advocate Health (Fka Advocate Aurora Health, Inc.)",Lobbying client,2270000,ai-care-decisions; ai-therapists
+122,Zurich American Insurance Company,Lobbying client,2240000,deepfakes; power-bills; privacy; self-driving
+123,Greater New York Hospital Association,Lobbying client,2240000,ai-care-decisions
+124,Deere & Company,Lobbying client,2192000,privacy
+125,eBay,Lobbying client,2180000,kids-chatbots; privacy
+126,Lenovo (United States),Lobbying client,2130000,china-race; job-loss; kids-chatbots; privacy
+127,State Farm Mutual Automobile Insurance Company,Lobbying client,2100000,privacy
+128,National Association of Mutual Insurance Companies,Lobbying client,2032198,ai-scams; bias; china-race; copyright; deepfakes; kids-chatbots; loss-of-control; power-bills; privacy; self-driving
+129,Xcel Energy,Lobbying client,2010000,power-bills
+130,"TD Bank, Na",Lobbying client,1990000,ai-scams; privacy
+131,Discovery Communications,Lobbying client,1970000,copyright; deepfakes; privacy
+132,Rocket LP Fka RKT Holdings,Lobbying client,1870000,privacy
+133,American Federation of Teachers,Lobbying client,1770000,ai-care-decisions; ai-scams; kids-chatbots; power-bills; privacy
+134,Ge Healthcare Technologies,Lobbying client,1740000,ai-care-decisions
+135,Ecolab,Lobbying client,1740000,power-bills
+136,American Express Company,Lobbying client,1730000,privacy
+137,Reinsurance Assn of America,Lobbying client,1710000,privacy
+138,Cognizant Technology Solutions U.S.,Lobbying client,1620000,privacy
+139,Sony Music Entertainment (Formerly Known As Sony BMG Music Entertainment),Lobbying client,1570000,copyright; privacy
+140,Pacific Life Insurance Company,Lobbying client,1570000,bias; privacy
+141,Sony Interactive Entertainment,Lobbying client,1520000,kids-chatbots; privacy
+142,The Chemours Company,Lobbying client,1480000,power-bills
+143,Dexcom,Lobbying client,1460000,ai-care-decisions
+144,American Apparel & Footwear Association,Lobbying client,1359955,china-race
+145,Firstenergy,Lobbying client,1340000,power-bills
+146,Iron Mountain Incorporated,Lobbying client,1340000,power-bills
+147,National Nurses United,Lobbying client,1292374,ai-care-decisions; kids-chatbots; power-bills
+148,Puget Sound Energy,Lobbying client,1290000,power-bills
+149,Lincoln National,Lobbying client,1270000,privacy
+150,American Association of Nurse Anesthetists,Lobbying client,1205000,ai-care-decisions; bias
+151,Baxter Healthcare,Lobbying client,1200000,ai-care-decisions
+152,Workday,Lobbying client,1160000,privacy
+153,Blue Cross Blue Shield of Michigan,Lobbying client,1095024,ai-care-decisions; ai-therapists
+154,FDD Action,Lobbying client,1020000,ai-care-decisions; ai-scams; china-race; power-bills; privacy
+155,United Assn of Journeymen & Apprentices of the Plumbing & Pipefitting Industry,Lobbying client,960000,power-bills
+156,Highmark,Lobbying client,950000,ai-care-decisions
+157,Cornell University,Lobbying client,940000,china-race
+158,Fiserv (Fka First Data Corporation),Lobbying client,930000,privacy
+159,Wec Energy Group,Lobbying client,920000,power-bills
+160,Haleon US Holdings,Lobbying client,920000,ai-care-decisions
+161,Dte Energy,Lobbying client,910000,power-bills
+162,QVC Group,Lobbying client,880000,kids-chatbots; privacy
+163,CMS Energy,Lobbying client,880000,power-bills
+164,Protective Life,Lobbying client,850000,privacy
+165,College of American Pathologists,Lobbying client,843563,ai-care-decisions; privacy
+166,Fidelity National Information Systems and Subsidiaries,Lobbying client,840000,privacy
+167,Solventum,Lobbying client,840000,ai-care-decisions
+168,The University of Florida Board of Trustees,Lobbying client,830000,ai-care-decisions; china-race; job-loss
+169,Premier,Lobbying client,810000,ai-care-decisions; privacy
+170,Nebius Group N.V.,Lobbying client,800000,power-bills
+171,National Committee to Preserve Social Security and Medicare,Lobbying client,780000,ai-care-decisions
+172,Insured Retirement Institute,Lobbying client,770000,ai-scams; privacy
+173,"Teco Holdings Inc., Formerly Known As Energy",Lobbying client,702868,power-bills
+174,The Michael J. Fox Foundation for Parkinson'S Research,Lobbying client,700000,ai-care-decisions; surveillance
+175,California Life Sciences,Lobbying client,690000,ai-care-decisions; privacy
+176,Insulet,Lobbying client,640000,ai-care-decisions
+177,Competitive Carriers Association,Lobbying client,630000,ai-scams; kids-chatbots; privacy
+178,Riot Platforms,Lobbying client,620000,power-bills
+179,Nisource,Lobbying client,610000,power-bills
+180,Interactive Advertising Bureau,Lobbying client,610000,privacy
+181,Centerpoint Energy,Lobbying client,590000,power-bills
+182,Privacy for America,Lobbying client,560000,privacy
+183,Fiber Broadband Association,Lobbying client,545000,power-bills
+184,The Aes,Lobbying client,520000,power-bills
+185,Burns & Mcdonnell Engineering Company,Lobbying client,470000,power-bills
+186,Booking Holdings,Lobbying client,460000,privacy
+187,Infineon Technologies Americas,Lobbying client,460000,power-bills
+188,Federation of State Medical Boards,Lobbying client,440000,ai-care-decisions
+189,Paralyzed Veterans of America,Lobbying client,413246,ai-care-decisions; bias
+190,Blue Cross and Blue Shield of Florida,Lobbying client,400000,ai-care-decisions; ai-therapists; privacy
+191,Equinix,Lobbying client,380000,power-bills
+192,PPL,Lobbying client,380000,power-bills
+193,Infosys Limited,Lobbying client,360000,job-loss
+194,Edgeconnex,Lobbying client,360000,power-bills
+195,Hearst,Lobbying client,360000,ai-care-decisions
+196,Nec Corporation of America,Lobbying client,340000,privacy; surveillance
+197,Altana Technologies,Lobbying client,335000,china-race
+198,Sutter Health,Lobbying client,320000,ai-care-decisions
+199,Advamed Imaging,Lobbying client,320000,ai-care-decisions
+200,Toast,Lobbying client,320000,privacy
+201,Seagate Technology,Lobbying client,320000,china-race
+202,TechNet,Trade group,320000,kids-chatbots; privacy
+203,American Pipeline Contractors Association,Lobbying client,320000,power-bills
+204,Gulf South Business Roundtable,Lobbying client,320000,power-bills
+205,Pindrop Security,Lobbying client,320000,deepfakes; privacy
+206,General Catalyst Group Management,Lobbying client,320000,ai-care-decisions
+207,Roblox,Lobbying client,320000,kids-chatbots; privacy
+208,BNP Paribas RCC,Lobbying client,310000,privacy
+209,Sabre Glbl,Lobbying client,310000,privacy
+210,Mitsubishi Electric US,Lobbying client,310000,power-bills
+211,Ivanti,Lobbying client,300000,privacy
+212,Zeta Global,Lobbying client,285000,privacy
+213,Abridge AI,Lobbying client,280000,ai-care-decisions; privacy
+214,Broadcast Music,Lobbying client,280000,copyright
+215,Hitachi,Lobbying client,280000,job-loss
+216,Ge Healthcare,Lobbying client,280000,ai-care-decisions
+217,Bitdeer Technologies Group,Lobbying client,280000,power-bills
+218,American Library Association,Lobbying client,271996,copyright
+219,"Siemens Healthineers (Fka Varian Medical Systems, Inc.)",Lobbying client,270000,ai-care-decisions
+220,AI Healthcare Coalition,Lobbying client,260000,ai-care-decisions
+221,Centene,Lobbying client,240000,ai-care-decisions
+222,Software & Information Industry Association (Siia),Lobbying client,240000,kids-chatbots; privacy
+223,Data Center Coalition,Trade group,240000,power-bills
+224,Toyota,Lobbying client,240000,self-driving
+225,Constellation,Lobbying client,240000,power-bills
+226,Reddit,Lobbying client,240000,kids-chatbots; privacy
+227,Kla,Lobbying client,230000,china-race
+228,Twilio,Lobbying client,230000,ai-scams; privacy
+229,Crowdstrike,Lobbying client,210000,privacy
+230,Advocate Health,Lobbying client,200000,ai-care-decisions
+231,"Capitol Dome Advocacy Obo American Society of Composers, Authors, and Publishers",Lobbying client,200000,copyright
+232,Retail Industry Leaders Association (Rila),Lobbying client,200000,privacy
+233,NRG Energy,Lobbying client,200000,power-bills
+234,Ikea US Retail,Lobbying client,200000,privacy
+235,Power & Communication Contractors Association,Lobbying client,200000,power-bills
+236,Ecolab on Behalf of Nalco Company,Lobbying client,200000,power-bills
+237,"Zoom Communications, (F/K/A Zoom Video Communication Inc.)",Lobbying client,200000,privacy
+238,NCTA - the Internet & Television Association,Lobbying client,200000,privacy
+239,IBM,AI company,200000,privacy
+240,Eyeo Gmbh,Lobbying client,200000,privacy
+241,Advance Publications,Lobbying client,200000,copyright; privacy
+242,Tsmc Arizona,Lobbying client,200000,china-race; power-bills
+243,Vertiv Group,Lobbying client,180000,power-bills
+244,Magicschool AI,Lobbying client,180000,kids-chatbots; privacy
+245,Internet Works,Lobbying client,178375,algorithmic-pricing; kids-chatbots; privacy
+246,The Internet Infrastructure Coalition (I2Coalition),Lobbying client,170000,deepfakes; privacy
+247,American Federation of Musicians,Lobbying client,160000,copyright
+248,Bria Artificial Intelligence,Lobbying client,160000,deepfakes; kids-chatbots; privacy
+249,"TNC (Us) Holdings, (Formerly Nielsen)",Lobbying client,160000,privacy
+250,Universal Music Group Recordings,Lobbying client,160000,copyright
+251,Major County Sheriffs of America (Formerly Major County Sheriffs' Association),Lobbying client,160000,privacy; surveillance
+252,Massachusetts Mutual Life Insurance Company (Massmutual Financial Group),Lobbying client,160000,privacy
+253,Lytx,Lobbying client,160000,privacy
+254,Independent Electrical Contractors,Lobbying client,150000,power-bills
+255,Lawyers' Committee for Civil Rights Under Law,Lobbying client,150000,bias; deepfakes; misinformation; privacy; surveillance
+256,Small Business & Entrepreneurship Council (Sbe Council),Lobbying client,145000,ai-care-decisions; ai-scams; algorithmic-pricing; bias; job-loss; power-bills; privacy
+257,Security Industry Association,Lobbying client,145000,privacy; surveillance
+258,Complete College America,Lobbying client,140000,privacy
+259,Emergent Strategies on Behalf of Zeta Global,Lobbying client,140000,privacy
+260,Mozilla,Lobbying client,130000,privacy
+261,Copyright Alliance,Lobbying client,120000,copyright
+262,Copyright Clearance Center,Lobbying client,120000,copyright
+263,Directors Guild of America,Lobbying client,120000,copyright; deepfakes
+264,"X, F/K/A Twitter",Lobbying client,120000,misinformation
+265,Science Applications International,Lobbying client,120000,privacy; surveillance
+266,California State Senate,Lobbying client,120000,kids-chatbots; privacy
+267,Common Cause,Lobbying client,120000,china-race
+268,Bcbsm,Lobbying client,116000,ai-care-decisions; ai-therapists
+269,International Trademark Association,Lobbying client,110000,deepfakes
+270,Zuffa and Affiliates Fka Wme Group,Lobbying client,110000,copyright
+271,Radnet,Lobbying client,100000,ai-care-decisions
+272,Siia,Lobbying client,100000,copyright; deepfakes
+273,American Association of Independent Music,Lobbying client,90000,copyright
+274,Consensus Cloud Solutions,Lobbying client,80000,ai-care-decisions
+275,American Health Information Management Assn,Lobbying client,80000,ai-care-decisions; privacy
+276,Iron Mountain Information Management,Lobbying client,80000,power-bills
+277,United States Telecom Association,Lobbying client,80000,ai-scams; privacy
+278,Health Innovation Alliance,Lobbying client,70000,ai-care-decisions; ai-therapists; privacy
+279,"CJ Lake, (On Behalf of California State Senate)",Lobbying client,70000,privacy
+280,Insights Association (Fka: Marketing Research Association),Lobbying client,60000,china-race; privacy
+281,Paramount Global (Formerly Viacomcbs),Lobbying client,50000,privacy
+282,National Alliance on Mental Illness,Lobbying client,50000,ai-care-decisions; ai-companions; ai-therapists; surveillance
+283,Academy of Television Art & Sciences,Lobbying client,40000,copyright; deepfakes
+284,National Fusion Center Association,Lobbying client,40000,privacy
+285,Atlassian,Lobbying client,40000,privacy
+286,The American Medical Informatics Association,Lobbying client,40000,ai-care-decisions
+287,Blue Cross and Blue Shield of Kansas,Lobbying client,40000,ai-care-decisions; ai-therapists; privacy
+288,Major League Baseball Players Association,Lobbying client,40000,deepfakes
+289,National Basketball Players Association,Lobbying client,40000,deepfakes
+290,National Football League Players Association,Lobbying client,40000,deepfakes
+291,National Hockey League Players Association,Lobbying client,40000,deepfakes
+292,Major League Soccer Players Association,Lobbying client,40000,deepfakes
+293,Digital Diagnostics,Lobbying client,40000,ai-care-decisions
+294,Children and Screens: Institute of Digital Media & Child Development,Lobbying client,30000,kids-chatbots; privacy
+295,American Hospital Association,Trade group,14880000,ai-care-decisions; ai-therapists; privacy; surveillance
+296,Novartis,Lobbying client,6180000,ai-care-decisions; china-race
+297,SK Americas,Lobbying client,4900000,china-race
+298,Qualcomm Incorporated,Lobbying client,4620000,self-driving
+299,Independent Community Bankers of America,Lobbying client,4481850,ai-scams; privacy
+300,Alliance for Automotive Innovation,Lobbying client,4126241,china-race; privacy; self-driving
+301,Real Estate Roundtable,Lobbying client,3498722,power-bills
+302,"Credit Union National Association, Dba America'S Credit Unions",Lobbying client,3480000,bias; privacy
+303,"Health Care Service Corporation, a Mutual Legal Reserve Company (Hcsc)",Lobbying client,3420000,ai-care-decisions
+304,GSK (Fka Glaxosmithkline Inc.),Lobbying client,3340000,ai-care-decisions
+305,Consumer Technology Association,Trade group,2480000,ai-care-decisions; china-race; privacy
+306,University of California,Lobbying client,2230000,ai-care-decisions; china-race
+307,Philips Holding USA,Lobbying client,1950000,ai-care-decisions
+308,Principal Financial Group,Lobbying client,1839000,loss-of-control; power-bills; privacy
+309,S&P Global (F/K/A Mcgraw Hill Financial Inc.),Lobbying client,1240000,power-bills
+310,American Academy of Pediatrics,Lobbying client,1209257,ai-care-decisions; kids-chatbots; privacy; self-driving
+311,Building and Construction Trades Dept AFL-CIO,Lobbying client,830000,ai-care-decisions; power-bills
+312,Pinnacle West Capital,Lobbying client,730000,power-bills
+313,Clean Energy Buyers Association (Formerly Renewable Energy Buyers Alliance),Lobbying client,710000,power-bills
+314,Leadership Conference on Civil and Human Rights,Lobbying client,630000,privacy; surveillance
+315,Ocean Conservancy,Lobbying client,592000,power-bills
+316,Broadcom,Lobbying client,580000,loss-of-control; privacy
+317,Poplicus Incorporated D/B/A Govini,Lobbying client,560000,china-race
+318,National Propane Gas Association,Lobbying client,540000,power-bills
+319,American Psychiatric Association,Lobbying client,487250,ai-care-decisions; ai-companions; ai-therapists; bias
+320,Recording Academy,Lobbying client,362334,copyright
+321,Tripadvisor,Lobbying client,350000,kids-chatbots
+322,Axel Springer,Lobbying client,330000,copyright
+323,University of Alaska,Lobbying client,310000,ai-care-decisions; ai-therapists; deepfakes; surveillance
+324,National Fraternal Order of Police,Lobbying client,300000,ai-care-decisions; ai-therapists; deepfakes
+325,American Conservation Coalition Action,Lobbying client,300000,power-bills
+326,American Fintech Council,Lobbying client,290000,ai-scams; deepfakes; privacy
+327,American Urological Association,Lobbying client,280000,ai-care-decisions
+328,Investment Adviser Association,Lobbying client,275000,privacy
+329,Kaiser Foundation Health Plan,Lobbying client,270000,ai-care-decisions
+330,Tools for Humanity,Lobbying client,240000,ai-scams; privacy
+331,Digital Content Next,Lobbying client,240000,privacy
+332,Advocates for Community Health,Lobbying client,235000,ai-care-decisions
+333,Edera L3C,Lobbying client,210000,ai-care-decisions
+334,Thomson Reuters,Lobbying client,200000,copyright; privacy
+335,PNK DC,Lobbying client,190000,power-bills
+336,"Yahoo Inc, and Var. Subs/Affiliates (Fka College Parent, L.P. Dba ""Yahoo"")",Lobbying client,180000,privacy
+337,Nevada System of Higher Education,Lobbying client,180000,ai-care-decisions; power-bills
+338,Hca Healthcare,Lobbying client,180000,ai-care-decisions
+339,Fivetran,Lobbying client,180000,privacy
+340,Marvell Technology,Lobbying client,180000,china-race; power-bills
+341,Comptel Dba Incompas,Lobbying client,180000,ai-scams
+342,The Academy Advisors,Lobbying client,170000,ai-care-decisions
+343,Alliance for a Better Future,Lobbying client,160000,kids-chatbots; privacy
+344,"Lumen Technologies, (Formerly Centurylink, Inc.)",Lobbying client,150000,power-bills
+345,Drai Health,Lobbying client,150000,ai-care-decisions
+346,Elevenlabs,Lobbying client,140000,copyright; privacy
+347,Mig Cig Lpe 01 JV,Lobbying client,140000,power-bills
+348,Mig Lancaster Holdings,Lobbying client,140000,power-bills
+349,Sage,Lobbying client,130000,ai-care-decisions
+350,Huron Consulting Services,Lobbying client,120000,ai-care-decisions
+351,Big Cities Health Coalition,Lobbying client,120000,surveillance
+352,"Siff & Associates, Pllc (Obo the Mechanical Contractors Association of America)",Lobbying client,120000,power-bills
+353,Scout AI,Lobbying client,120000,self-driving
+354,Bsa Business Software Alliance,Lobbying client,110000,privacy
+355,Black Hills,Lobbying client,108000,power-bills
+356,University of New Mexico,Lobbying client,100000,power-bills
+357,LG Electronics USA,Lobbying client,90000,privacy
+358,Capital One Financial,Lobbying client,90000,privacy
+359,Independent Film & Television Alliance,Lobbying client,80000,copyright; deepfakes
+360,Getty Images,Lobbying client,80000,copyright
+361,Panasonic Corporation of North America,Lobbying client,70000,privacy
+362,University of Toledo,Lobbying client,70000,power-bills
+363,Paysafe Payment Processing Solutions,Lobbying client,60000,privacy
+364,"Aquia Group, on Behalf of Comcast",Lobbying client,50000,privacy
+365,Travel Goods Association,Lobbying client,23187,ai-scams; deepfakes
+366,PhRMA,Trade group,20620000,ai-care-decisions
+367,AARP,Lobbying client,9130000,ai-care-decisions; ai-scams; deepfakes; privacy
+368,Pacific Gas and Electric Company,Lobbying client,6680000,power-bills
+369,American Petroleum Institute,Lobbying client,4960000,power-bills
+370,Investment Company Institute,Lobbying client,2701303,privacy
+371,National Rural Electric Cooperative Association (Nreca),Lobbying client,2269734,power-bills
+372,Humana,Lobbying client,1960000,ai-care-decisions
+373,HP,Lobbying client,1750000,privacy
+374,American Health Care Association,Lobbying client,1670000,ai-care-decisions
+375,"H&R Block Management, Llc, a Subsidiary of H&R Block",Lobbying client,1580000,privacy
+376,Bipartisan Policy Center Action,Lobbying client,1540000,power-bills
+377,Americans for Prosperity,Lobbying client,1250000,surveillance
+378,National Association of Wholesaler-Distributors,Lobbying client,1053000,privacy
+379,Exelon Business Services,Lobbying client,990000,power-bills
+380,International Brotherhood of Teamsters,Lobbying client,921098,job-loss; privacy
+381,Semi,Lobbying client,920000,china-race
+382,Kroger,Lobbying client,890000,algorithmic-pricing; privacy
+383,Communications Workers of America,Lobbying client,861000,bias; job-loss; privacy; surveillance
+384,American Psychological Association Services Inc.(Fka American Psychological Assn,Lobbying client,860000,bias
+385,American Fed of Government Employees AFL-CIO,Lobbying client,820000,ai-care-decisions
+386,Large Public Power Council,Lobbying client,820000,power-bills
+387,Metlife Group,Lobbying client,800000,privacy
+388,National Treasury Employees Union,Lobbying client,650000,privacy
+389,Johns Hopkins University,Lobbying client,630000,ai-care-decisions
+390,Medical Group Management Assn,Lobbying client,600000,ai-care-decisions
+391,Supermicro,Lobbying client,600000,china-race; power-bills
+392,American Public Power Association,Lobbying client,600000,power-bills
+393,Bluecross Blueshield of Tennessee,Lobbying client,560000,ai-care-decisions
+394,Berkshire Hathaway Energy,Lobbying client,520000,power-bills
+395,Vanderbilt University,Lobbying client,510000,deepfakes
+396,Sarepta Therapeutics,Lobbying client,500000,ai-care-decisions
+397,Aon,Lobbying client,490000,power-bills
+398,American Nurses Association,Lobbying client,480000,ai-care-decisions
+399,Arkema and Its Affiliates (Fka Arkema Inc.),Lobbying client,428000,power-bills
+400,Yahoo and Var. Subs/Affiliates,Lobbying client,360000,privacy
+401,Unidosus (Fka National Council of La Raza),Lobbying client,339343,bias; privacy; surveillance
+402,International Union of Operating Engineers,Lobbying client,310000,power-bills
+403,American College of Physician Services,Lobbying client,249030,ai-care-decisions
+404,Worldpay,Lobbying client,210000,ai-scams; privacy
+405,Int'L Association of Bridge Structural Ornamental & Reinforcing Iron Workers,Lobbying client,200000,power-bills
+406,Southern Environmental Law Center,Lobbying client,180000,power-bills
+407,American College of Physicians,Lobbying client,171197,ai-care-decisions
+408,Ywca USA,Lobbying client,163948,ai-care-decisions
+409,American Securities Association,Lobbying client,160000,ai-scams; china-race; privacy
+410,Vistra Corporate Services Company,Lobbying client,160000,power-bills
+411,Nscale Limited,Lobbying client,160000,power-bills
+412,Netflix,Lobbying client,140000,kids-chatbots; privacy
+413,NetChoice,Trade group,120000,kids-chatbots; privacy
+414,Elasticsearch,Lobbying client,120000,privacy
+415,Athenahealth,Lobbying client,100000,privacy
+416,Aon Service,Lobbying client,100000,power-bills
+417,Advanced Medical Technology Association (Advamed),Lobbying client,100000,china-race
+418,Calpine,Lobbying client,100000,power-bills
+419,Energy Freedom Fund,Lobbying client,90000,power-bills
+420,Smarter Technologies,Lobbying client,80000,ai-care-decisions
+421,Moapa Band of Paiute,Lobbying client,80000,power-bills
+422,Horizon Blue Cross Blue Shield of New Jersey,Lobbying client,80000,ai-care-decisions
+423,Kansas Department of Commerce,Lobbying client,80000,power-bills
+424,Concurrent Technologies,Lobbying client,70000,job-loss
+425,Gen Digital,Lobbying client,60000,ai-scams; privacy
+426,Alliance Defending Freedom,Lobbying client,60000,ai-care-decisions; bias; deepfakes; kids-chatbots; privacy
+427,Highland Digital,Lobbying client,60000,power-bills
+428,New York University Langone Medical Center,Lobbying client,60000,ai-care-decisions
+429,AI Supply Chain Alliance (Informal Coalition),Lobbying client,60000,power-bills
+430,University of Maryland,Lobbying client,52000,surveillance
+431,Lehigh University,Lobbying client,50000,power-bills
+432,Conference of Provincials of North America,Lobbying client,40000,china-race; surveillance
+433,Pearson Education,Lobbying client,40000,privacy
+434,Allete,Lobbying client,40000,power-bills
+435,Deacon Health,Lobbying client,30000,ai-care-decisions; privacy
+436,Super Micro Computer,Lobbying client,30000,china-race; power-bills
+437,Verily Life Sciences,Lobbying client,20000,surveillance
+438,Hartwell Capitol Consulting *On Behalf of Drai Health),Lobbying client,20000,ai-care-decisions
+439,California Baptist University,Lobbying client,19500,job-loss
+440,Fedex,Lobbying client,2930000,privacy
+441,National Association of Manufacturers,Lobbying client,2140000,power-bills
+442,"Americas Credit Unions, Fka Credit Union National Association, Dba America",Lobbying client,1060000,privacy
+443,Electronic Transactions Association,Lobbying client,550000,privacy
+444,Center for Biological Diversity,Lobbying client,533685,power-bills
+445,Mckesson Corporation & Affiliates U.S. Oncology and RX Savings Solutions,Lobbying client,530000,ai-care-decisions
+446,Arm,Lobbying client,410000,china-race
+447,California Hospital Association,Lobbying client,370000,ai-care-decisions
+448,Covestro,Lobbying client,320000,power-bills
+449,Vizient,Lobbying client,300000,ai-care-decisions
+450,Woolpert,Lobbying client,290000,power-bills
+451,Laboratory Corporation of America Holdings,Lobbying client,270000,ai-care-decisions; job-loss; privacy
+452,Defenders of Wildlife,Lobbying client,270000,power-bills
+453,American Land Title Association,Lobbying client,250000,ai-scams
+454,League of Conservation Voters,Lobbying client,230000,power-bills
+455,Poplicus Incorporated D/B/A Air (F/K/A Poplicus Incorporated D/B/A Govini),Lobbying client,230000,china-race
+456,Eaton,Lobbying client,220000,power-bills
+457,Transamerica Companies,Lobbying client,200000,bias; privacy
+458,Oceana,Lobbying client,200000,job-loss
+459,International Brotherhood of Electrical Workers,Lobbying client,200000,job-loss; power-bills
+460,Stack Infrastructure,Lobbying client,200000,power-bills
+461,"Verisk Analytics, and Its Affiliates",Lobbying client,190000,privacy
+462,Teladoc Health,Lobbying client,170000,privacy
+463,Hawaiian Airlines,Lobbying client,160000,privacy; surveillance
+464,International Union of Painters and Allied Trades,Lobbying client,160000,power-bills
+465,American College of Obstetricians and Gynecologists,Lobbying client,150000,ai-care-decisions; surveillance
+466,Wikimedia Foundation,Lobbying client,150000,kids-chatbots
+467,Corporate Energy Buyers Association,Lobbying client,140000,power-bills
+468,Hitachi Energy USA,Lobbying client,130000,power-bills
+469,Santa Clara Valley Water District,Lobbying client,130000,power-bills
+470,Association of California Water Agencies,Lobbying client,125000,power-bills
+471,Association for Diagnostics & Laboratory Medicine (Formerly Aacc),Lobbying client,120000,ai-care-decisions
+472,Earthjustice Action,Lobbying client,111651,power-bills
+473,Open Space Institute,Lobbying client,110000,power-bills
+474,Government Employees Insurance Company,Lobbying client,100000,self-driving
+475,Prologis,Lobbying client,90000,power-bills
+476,Nareit,Lobbying client,90000,power-bills
+477,Mcgraw-Hill Education,Lobbying client,80000,kids-chatbots
+478,Quality Technology Services (Qts),Lobbying client,80000,power-bills
+479,National Women'S Law Center Action Fund,Lobbying client,75000,bias; deepfakes
+480,Public Citizen,Lobbying client,73000,ai-companions; power-bills
+481,American Transaction Processors Coalition,Lobbying client,70000,privacy
+482,Georgia Institute of Technology,Lobbying client,70000,job-loss
+483,Center for Responsible Lending a Supporting Corp of CTR for Community Self-Help,Lobbying client,70000,algorithmic-pricing; bias
+484,American Council on Education,Lobbying client,60639,china-race
+485,Kyndryl,Lobbying client,60000,privacy
+486,Illumina,Lobbying client,60000,ai-care-decisions
+487,Ameresco,Lobbying client,60000,power-bills
+488,Cisco Systems,Lobbying client,60000,privacy
+489,Inseparable Action,Lobbying client,60000,kids-chatbots
+490,Grubhub Holdings,Lobbying client,60000,algorithmic-pricing; surveillance
+491,Ochsner Clinic Foundation Dba Ochsner Health,Lobbying client,50000,ai-care-decisions
+492,Walgreen,Lobbying client,50000,ai-care-decisions
+493,Alarm.Com,Lobbying client,50000,privacy
+494,Iproov,Lobbying client,50000,deepfakes; surveillance
+495,Institute for Portfolio Alternatives Formerly Investment Program Association,Lobbying client,50000,power-bills
+496,Digital Realty Trust,Lobbying client,50000,power-bills
+497,Charter Communications,Lobbying client,50000,copyright
+498,Giffords,Lobbying client,50000,privacy
+499,Assn. of State and Territorial Health Officials,Lobbying client,49792,surveillance
+500,City of Tucson,Lobbying client,44063,job-loss
+501,Texas Instruments Incorporated,Lobbying client,40000,privacy
+502,Aecom,Lobbying client,40000,power-bills
+503,Demand Progress Action,Lobbying client,40000,privacy
+504,Sergeants Benevolent Association of New York City,Lobbying client,40000,surveillance
+505,Godaddy,Lobbying client,40000,loss-of-control
+506,Red Hat,Lobbying client,30000,privacy
+507,Hitrust Services,Lobbying client,30000,ai-care-decisions; privacy
+508,Socure,Lobbying client,30000,ai-scams; deepfakes
+509,Electronic Frontier Foundation,Lobbying client,30000,privacy; surveillance
+510,Teramind,Lobbying client,30000,privacy; surveillance
+511,Electricity Customer Alliance,Lobbying client,30000,power-bills
+512,National Water Resources Association,Lobbying client,30000,power-bills
+513,Council of Multiple Listing Services,Lobbying client,30000,copyright; privacy
+514,Tantalus Systems,Lobbying client,30000,power-bills
+515,Amentum,Lobbying client,30000,power-bills
+516,Association for Diagnostics & Laboratory Medicine,Lobbying client,30000,ai-care-decisions
+517,PLP,Lobbying client,30000,power-bills
+518,National Association of Pediatric Nurse Practitioners,Lobbying client,24000,ai-care-decisions; ai-therapists; bias; kids-chatbots; privacy
+519,Wake Forest Baptist Medical Center Affiliate of Advocate Health,Lobbying client,20000,ai-care-decisions; ai-therapists
+520,City of Modesto,Lobbying client,20000,power-bills
+521,Secure AI Project,Lobbying client,20000,loss-of-control
+522,"American Airlines (Formerly Reported As ""American Airlines"")",Lobbying client,20000,privacy
+523,Indian Wells Valley Groundwater Authority,Lobbying client,15244,power-bills
+524,Center for Individual Freedom,Lobbying client,10000,copyright
+525,Disability Rights Education & Defense,Lobbying client,10000,ai-care-decisions; job-loss; privacy; self-driving; surveillance
+526,Humans First,Lobbying client,10000,ai-care-decisions; job-loss; surveillance
+527,Meridian Gridworks Prime,Lobbying client,10000,power-bills
+528,Free Press Action Fund,Lobbying client,10000,misinformation; power-bills
+529,New Jersey Hospital Association,Lobbying client,10000,ai-care-decisions
+530,National Business Coalition on E-Commerce and Privacy,Lobbying client,10000,privacy

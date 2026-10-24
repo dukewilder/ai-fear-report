@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-17",
+ "headline": "Virginia would bar permits for data center siting",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nVirginia would bar any agency of the Commonwealth from issuing permits, licenses, or approvals for data center siting or electric service starting July 1, 2027. Not passed.\n\n124 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.\n\n199 measures in 44 jurisdictions cite the fear that anyone can now fake anyone.\n\n2,272 measures tracked. 760 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-17.png",
+ "alt": "A card from the AI Fear Report headed: Virginia would bar permits for data center siting. Virginia would bar any agency of the Commonwealth from issuing permits, licenses, or approvals for data center siting or electric service starting July 1, 2027. 124 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them. 199 measures in 44 jurisdictions cite the fear that anyone can now fake anyone.",
+ "lines": [
+  {
+   "target": "os-9f5f76a4-2760-49a4-8481-2c18bb2d3fa2",
+   "sentence": "Virginia would bar any agency of the Commonwealth from issuing permits, licenses, or approvals for data center siting or electric service starting July 1, 2027.",
+   "quote": "prohibits any agency of the Commonwealth from (i) issuing any permit, certificate, registration, license, or other form of approval in connection with the development or siting of a data center",
+   "office": "",
+   "controls": "data-center-limits",
+   "fears": "",
+   "jurisdiction": "Virginia",
+   "url": "https://openstates.org/va/bills/2027/SB843/",
+   "status": "pending",
+   "action": "Referred to Committee on Local Government",
+   "kind": "bill"
+  },
+  {
+   "target": "control:data-center-limits:124",
+   "sentence": "124 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Data center limits",
+   "head": "124 measures in 33 jurisdictions: limits on building data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:deepfakes:199",
+   "sentence": "199 measures in 44 jurisdictions cite the fear that anyone can now fake anyone.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Deepfakes",
+   "head": "199 measures name the same fear: Deepfakes",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2272,
+  "controlled": 760,
+  "offices": 100
+ }
+}

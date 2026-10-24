@@ -1,0 +1,39 @@
+{
+ "edition": "2026-10-13",
+ "headline": "New Jersey would bar artificial intelligence insurance claim denials",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nNew Jersey would bar insurers from using artificial intelligence to deny homeowner, automobile, and flood insurance claims. Not passed. It cites the fear that an algorithm decides who gets hired, housed, or lent to.\n\n23 measures in 13 jurisdictions cite the fear that AI is watching and identifying people.\n\n2,248 measures tracked. 756 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-13.png",
+ "alt": "A card from the AI Fear Report headed: New Jersey would bar artificial intelligence insurance claim denials. New Jersey would bar insurers from using artificial intelligence to deny homeowner, automobile, and flood insurance claims. 23 measures in 13 jurisdictions cite the fear that AI is watching and identifying people.",
+ "lines": [
+  {
+   "target": "os-f51e9fb8-eb57-4cca-ab60-14418d976a7d",
+   "sentence": "New Jersey would bar insurers from using artificial intelligence to deny homeowner, automobile, and flood insurance claims.",
+   "quote": "Prohibits certain use of artificial intelligence in denying homeowner, automobile, and flood insurance claims.",
+   "office": "",
+   "controls": "use-restrictions",
+   "fears": "bias",
+   "jurisdiction": "New Jersey",
+   "url": "https://openstates.org/nj/bills/222/A5494/",
+   "status": "pending",
+   "action": "Introduced, Referred to Assembly Science, Innovation and Technology Committee",
+   "kind": "bill"
+  },
+  {
+   "target": "fear:surveillance:23",
+   "sentence": "23 measures in 13 jurisdictions cite the fear that AI is watching and identifying people.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "AI surveillance",
+   "head": "23 measures name the same fear: AI surveillance",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2248,
+  "controlled": 756,
+  "offices": 100
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-12",
+ "headline": "California lets prosecutor fine businesses for human chatbot claims",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCalifornia gives a public prosecutor the power to penalize large private businesses up to $10,000 for representing a customer service chatbot as human. Passed.\n\n105 measures in 27 states would require a company to file reports with a government body, or hand them over on demand.\n\n28 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.\n\n2,248 measures tracked. 756 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-12.png",
+ "alt": "A card from the AI Fear Report headed: California lets prosecutor fine businesses for human chatbot claims. California gives a public prosecutor the power to penalize large private businesses up to $10,000 for representing a customer service chatbot as human. Held by California public prosecutors. 105 measures in 27 states would require a company to file reports with a government body, or hand them over on demand. 28 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.",
+ "lines": [
+  {
+   "target": "os-9e97e451-422c-4985-9929-6588d11c0159",
+   "sentence": "California gives a public prosecutor the power to penalize large private businesses up to $10,000 for representing a customer service chatbot as human.",
+   "quote": "would prohibit a large private business, as defined, from representing that a customer service chatbot is a human",
+   "office": "California public prosecutors",
+   "controls": "labeling-mandates",
+   "fears": "",
+   "jurisdiction": "California",
+   "url": "https://openstates.org/ca/bills/20252026/AB1609/",
+   "status": "passed",
+   "action": "Chaptered by Secretary of State - Chapter 733, Statutes of 2026.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:mandatory-reporting:105",
+   "sentence": "105 measures in 27 states would require a company to file reports with a government body, or hand them over on demand.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Mandatory reporting",
+   "head": "105 measures in 27 states: reports companies must file with the government",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:job-loss:28",
+   "sentence": "28 measures in 11 jurisdictions cite the fear that AI is coming for the jobs.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Job loss",
+   "head": "28 measures name the same fear: Job loss",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2248,
+  "controlled": 756,
+  "offices": 100
+ }
+}
