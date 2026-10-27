@@ -10,8 +10,7 @@ them, and an affirmative defense for disclosed deepfakes as a labeling mandate.
 So each label gets one narrow question, asked by a separate and stronger model against the label's
 own definition: does the measure itself do this, or for a fear, does the text itself state it? It is
 told the ways the answer has turned out to be no. Fears on organizations' statements are read too. A no removes the label and is kept with its reason, so the same label
-resting on the same quote never comes back. A label the check has not reached yet stays on the site,
-but cannot lead the daily post (brief.pool reads only labels that passed).
+resting on the same quote never comes back. A label the check has not reached yet stays on the site.
 """
 import concurrent.futures as cf
 import datetime as dt

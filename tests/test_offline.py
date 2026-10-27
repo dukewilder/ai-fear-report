@@ -18,134 +18,8 @@ from pipeline import export  # noqa: E402
 from pipeline.common import config, connect, iso, name_key, upsert  # noqa: E402
 
 
-def check_brief_prompt():
-    """Build the prompt the brief sends, for both statuses, without touching the network.
-
-    A rewrite of the rules once deleted the two tense strings and left the line that formats them
-    in. Every sentence then died of a NameError that the row-by-row catch swallowed, so a whole
-    day of editions fell back to counts while the log said the sentences did not hold up. This
-    costs nothing and would have caught it.
-    """
-    from pipeline import brief
-    for status, expect in (("passed", "present tense"), ("pending", "conditional")):
-        tense = brief.LAW if status == "passed" else brief.PENDING
-        rules = brief.RULES.format(tense=tense)
-        assert expect in rules, f"{status}: the rules do not tell the model the tense"
-        assert "{tense}" not in rules, f"{status}: the placeholder survived"
-    row = {"jurisdiction_name": "Ohio", "identifier": "HB 1", "title": "A title",
-           "summary": "A summary long enough to quote from.", "status": "pending",
-           "office": "Ohio Department of Commerce"}
-    assert "Ohio" in brief.doc(row)
-    # and the gates, both ways round
-    body = "ohio would put every ai operator under the ohio department of commerce"
-    good = "Ohio would put every AI operator under the Ohio Department of Commerce, which decides who may run one."
-    assert brief.why_not(good, "would put every ai operator under the ohio department", body, False,
-                         row["office"]) == "", "a sound pending sentence was rejected"
-    assert brief.why_not(good, "would put every ai operator under the ohio department", body, True,
-                         row["office"]), "a passed measure written conditionally was accepted"
-    # the gates that decide whether a sentence is reporting or repeating the sponsor
-    FDA = "Health and Human Services Department, Food and Drug Administration"
-    SHAPES = [
-        # the sponsor's grammar, including the ways it can look like the other kind
-        ("California requires operators of companion chatbots to perform risk assessments and submit "
-         "to independent audits reported to the Attorney General.", "California", False),
-        (FDA + " requires operators to file reports and keep records.", FDA, False),
-        ("California requires operators to certify compliance under penalty of perjury.", "California", False),
-        ("California requires operators to file reports that may be audited later.", "California", False),
-        ("Michigan would require utilities to file forecasts under the Clean Energy Act.", "Michigan", False),
-        ("Texas requires a developer to give notice to every user of the system.", "Texas", False),
-        ("Michigan would require utilities to file data center load forecasts with the Public "
-         "Service Commission.", "Michigan", False),
-        # and sentences that do name a power
-        ("California puts AI auditors under registration with the Government Operations Agency, "
-         "which licenses them and investigates violations.", "California", True),
-        ("New York would require every frontier developer to register with the Office for AI Model "
-         "Developer Oversight, which decides who may release one.", "New York", True),
-        ("California puts companion chatbots under independent child safety audits reported to the "
-         "Attorney General beginning July 1, 2027.", "California", True),
-        ("Michigan would put every data center's load forecast under the Public Service Commission.",
-         "Michigan", True),
-        ("California requires every companion chatbot to be certified by an auditor the Attorney "
-         "General approves.", "California", True),
-        ("Ohio prohibits a person from deploying an artificial intelligence that represents itself "
-         "as a therapist.", "Ohio", True),
-    ]
-    for text, place, keep in SHAPES:
-        head = brief.tense_of(text, place)
-        kept = not (brief.DUTY_OPENER.search(head) and not brief.POWER.search(text))
-        assert kept == keep, f"power framing: {text[:60]!r} should be {'kept' if keep else 'rejected'}"
-    # and through why_not itself, so removing the gate fails here rather than in production
-    duty = ("California requires operators of companion chatbots to perform risk assessments and "
-            "submit to independent audits reported to the Attorney General.")
-    dbody = ("california requires operators of companion chatbots to perform risk assessments and "
-             "submit to independent audits reported to the attorney general")
-    assert "duty" in brief.why_not(duty, "requires operators of companion chatbots to perform risk",
-                                   dbody, True, "", "", "California"), "the duty gate is not wired in"
-    # Duties a measure puts on an office are the office's job, not a power to impose duties on others.
-    pa_raw = ("An Act providing for artificial intelligence risk prevention; establishing standards for frontier "
-              "developers in addressing critical safety incidents and catastrophic risks; imposing duties on the "
-              "Pennsylvania Emergency Management Agency and the Attorney General; and imposing penalties.")
-    pa_bad = ("Pennsylvania would give the Pennsylvania Emergency Management Agency and the Attorney General the "
-              "power to impose duties on frontier developers over critical incidents and catastrophic risks.")
-    pa_body = brief.norm(pa_raw)
-    assert "duties" in brief.why_not(pa_bad, "imposing duties on the Pennsylvania Emergency Management Agency",
-                                     pa_body, False, "", "", "Pennsylvania", raw=pa_raw), "the duties gate is not wired in"
-    assert "Duties a measure puts on an office" in brief.RULES
-    # A power the text does not state is refused; one it states, by verb or by object, is kept.
-    pa_v2 = ("Pennsylvania would give the Pennsylvania Emergency Management Agency the power to demand reports of "
-             "critical incidents and catastrophic risks from frontier developers.")
-    assert "does not say" in brief.ungrounded_power(pa_v2, pa_raw)
-    nj = "New Jersey gives the BPU the power to demand semi-annual water and energy usage reports from data centers."
-    assert brief.ungrounded_power(nj, "requires semi-annual reports on water and energy usage by data centers") == ""
-    ca = ("California gives the Attorney General the power to, for cause, request and obtain a copy of an audit "
-          "report from the operator of a companion chatbot.")
-    assert brief.ungrounded_power(ca, "the Attorney General may request an audit report for cause") == ""
-    assert brief.starts_later("commencing January 1, 2029, the agency", "2026-09-20") == "2029"
-    assert brief.starts_later("effective January 1, 2025, the agency", "2026-09-20") == ""
-    later = ("California puts AI auditors under registration with the Government Operations Agency, "
-             "which licenses them.")
-    lbody = ("california puts ai auditors under registration with the government operations agency "
-             "which licenses them")
-    assert "2029" in brief.why_not(later, "puts ai auditors under registration with the government",
-                                   lbody, True, "", "2029", "California"), "the start-year gate is not wired in"
-    assert brief.why_not(later.replace("Agency,", "Agency from 2029,"),
-                         "puts ai auditors under registration with the government",
-                         lbody, True, "", "2029", "California") == "", "a sentence carrying the year was rejected"
-    # Dating a measure is not explaining it, and a sentence opening on its year keeps its tense after it
-    assert not brief.EXPLAINING.search("California puts companion chatbot operators under independent "
-                                       "auditors whose reports the Attorney General can demand, beginning 2027.")
-    assert brief.EXPLAINING.search("California puts chatbots under audits, reflecting a national trend.")
-    assert brief.CONDITIONAL.search(brief.tense_of("From 2027, California would put companion chatbots under "
-                                                   "audits reported to the Attorney General.", "California"))
-    assert brief.CONDITIONAL.search(brief.tense_of("Beginning January 1, 2028, Texas would put data centers "
-                                                   "under a permit.", "Texas"))
-    print("brief prompt and gates: ok")
 
 
-def check_plate_fits():
-    """The card must carry the whole headline, at whatever size that takes.
-
-    It used to set three lines at one size and drop the rest, so an eleven word headline went out
-    reading "...UNDER ENVIRONMENTAL" and stopping. A smaller headline is a headline. Half of one
-    is a different claim.
-    """
-    import sys as _sys
-    _sys.path.insert(0, str(ROOT / "site"))
-    try:
-        import brand
-    except Exception as exc:  # the fonts are not always present, and the pages matter more
-        print("plate check skipped:", exc)
-        return
-    from PIL import Image, ImageDraw
-    d = ImageDraw.Draw(Image.new("RGB", (1600, 900)))
-    room = (900 - 92 - 30) - 34 - (92 + 24 + 120 * 1.62 + 132)
-    for head in ("California puts companion chatbots under child safety audits",
-                 "Pennsylvania would put commercial data center water supplies under Environmental Protection",
-                 "New York puts every frontier model developer under an office that decides who may release one"):
-        _, lines, step = brand.fit_headline(d, head, 1600 - 184, room)
-        assert " ".join(lines).split() == head.upper().split(), f"the card would drop words from: {head}"
-        assert len(lines) * step <= room, f"the card would run into its own footer: {head}"
-    print("plate fits the whole headline: ok")
 
 
 def check_headline_tidy():
@@ -262,7 +136,7 @@ def check_no_euphemism():
     for f in _json.loads((ROOT / "config" / "fears.json").read_text()):
         for k in ("name", "short", "because"):
             scan(f"fears/{f['slug']}/{k}", f.get(k))
-    for name in ("brief", "site"):
+    for name in ("site",):
         blob = _json.loads((ROOT / "config" / f"{name}.json").read_text())
         for k, v in (blob.items() if isinstance(blob, dict) else []):
             if isinstance(v, str):
@@ -280,7 +154,7 @@ def check_no_euphemism():
     import ast as _ast
     PROSE = _re.compile(r"^[A-Za-z][A-Za-z0-9 ,.:;'\u2019()%$-]{12,}$")
     SQLISH = _re.compile(r"\b(SELECT|INSERT|UPDATE|DELETE|FROM|WHERE|GROUP BY|ORDER BY|JOIN|VALUES)\b")
-    for src in ("pipeline/export.py", "pipeline/brief.py", "site/build.py", "site/brand.py"):
+    for src in ("pipeline/export.py", "site/build.py", "site/brand.py"):
         path = ROOT / src
         for node in _ast.walk(_ast.parse(path.read_text())):
             if not isinstance(node, _ast.Constant) or not isinstance(node.value, str):
@@ -379,122 +253,8 @@ def check_failed_source_retries():
     print("a failed daily source is tried again today: ok")
 
 
-def check_places_word():
-    """An executive order is not a state, whatever its office is called.
-
-    The plate says "in ten states" or "in ten jurisdictions" depending on what it counted. The
-    test for that read the end of the place's name, so Education Department was federal and
-    Executive Office of the President was a state. The jurisdiction code is the answer.
-    """
-    from pipeline import brief
-    from pipeline.common import connect as _connect
-    import tempfile as _tempfile
-    db = _connect(pathlib.Path(_tempfile.mkdtemp()) / "places.db")
-    day = dt.date.today().isoformat()
-    rows = [("m1", "ca", "California"), ("m2", "ny", "New York"), ("m3", "tx", "Texas")]
-    for mid, code, name in rows:
-        upsert(db, "measures", {"id": mid, "kind": "bill", "jurisdiction": code,
-                                "jurisdiction_name": name, "session": "2025", "identifier": "SB 1",
-                                "title": "t", "summary": "s", "status": "pending", "url": f"u{mid}",
-                                "introduced_date": day, "source": "test", "first_seen": iso()})
-        db.execute("INSERT INTO tag_runs VALUES(?,?,?,?,NULL)", (mid, "h", 1, iso()))
-        db.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", (mid, "control", "c", "q", "t", iso()))
-    db.commit()
-    assert brief.places(db, "control", "c") == (3, "state"), "three states are three states"
-
-    def add(mid, kind, code, name, ident):
-        upsert(db, "measures", {"id": mid, "kind": kind, "jurisdiction": code, "jurisdiction_name": name,
-                                "session": "", "identifier": ident, "title": f"t {mid}", "summary": "s",
-                                "status": "passed", "url": f"u{mid}", "introduced_date": day, "source": "test",
-                                "first_seen": iso()})
-        db.execute("INSERT INTO tag_runs VALUES(?,?,?,?,NULL)", (mid, "h", 1, iso()))
-        db.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", (mid, "control", "c", "q", "t", iso()))
-        db.commit()
-    add("m4", "order", "us-exec", "Executive Office of the President", "EO 1")
-    n, word = brief.places(db, "control", "c")
-    assert (n, word) == (4, "jurisdiction"), \
-        f"an executive order counted as a state: the plate would have said {n} {word}s"
-    # The federal government is one place however many offices issued its measures. Counting names
-    # made it one place per agency: Congress, the President and the FDA were three jurisdictions.
-    add("m5", "rule", "us-exec", "Health and Human Services Department, Food and Drug Administration", "FR 1")
-    add("m6", "bill", "us", "Congress", "H.R. 1")
-    n, word = brief.places(db, "control", "c")
-    assert (n, word) == (4, "jurisdiction"), f"the federal government counted as {n - 3} places"
-    print("an executive order is not a state, and the federal government is one place: ok")
-
-    # Puerto Rico is not a state, on the plate or on the page
-    db2 = _connect(pathlib.Path(_tempfile.mkdtemp()) / "places2.db")
-    for mid, code, name in [("p1", "ca", "California"), ("p2", "pr", "Puerto Rico")]:
-        upsert(db2, "measures", {"id": mid, "kind": "bill", "jurisdiction": code, "jurisdiction_name": name,
-                                 "session": "2025", "identifier": "SB 1", "title": "t", "summary": "s",
-                                 "status": "pending", "url": f"u{mid}", "introduced_date": day, "source": "test",
-                                 "first_seen": iso()})
-        db2.execute("INSERT INTO tag_runs VALUES(?,?,?,?,NULL)", (mid, "h", 1, iso()))
-        db2.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", (mid, "control", "c", "q", "t", iso()))
-    db2.commit()
-    assert brief.places(db2, "control", "c") == (2, "jurisdiction"), "Puerto Rico was called a state"
-    from pipeline.export import where_phrase
-    assert where_phrase({"ca", "ny", "pr", "us", "us-exec"}) == "2 states, Puerto Rico and the federal government"
-    assert where_phrase({"ca", "us"}) == "1 state and Congress"
-    assert where_phrase({"us-exec"}) == "the federal government"
-    print("Puerto Rico is named, not counted as a state: ok")
 
 
-def check_headline_keeps_the_power():
-    """A headline that drops the body reads the measure backwards.
-
-    The morning of 20 September the plate said "California would exempt data center projects from
-    environmental review". The sentence it came from said the projects go under the Governor's
-    authority to certify them as exempt. One office deciding who is exempt is a power; the plate
-    said a rule had gone away, which is the opposite of what this report is for. Everything else
-    guarding the headline stops it saying something untrue. This stops it saying the true thing
-    backwards.
-    """
-    from pipeline import brief
-    real = brief.call
-    lead = {"sentence": "California would put data center projects under the Governor's authority "
-                        "to certify them as environmental leadership development projects exempt "
-                        "from standard environmental review.",
-            "office": "California Office of Land Use and Climate Innovation",
-            "jurisdiction": "California", "controls": "data-center-limits", "head": ""}
-    names = {c["slug"]: c for c in config("controls")}
-    assert brief.power_holder(lead["sentence"]) == {"governor"}, brief.power_holder(lead["sentence"])
-    try:
-        said = []
-
-        def two_tries(key, system, prompt, max_tokens=0):
-            said.append(prompt)
-            return {"line": ["California would exempt data center projects from environmental review",
-                             "California would let the Governor exempt data center projects"][len(said) - 1]}
-
-        brief.call = two_tries
-        got = brief.headline("k", [lead], names, {})
-        assert "governor" in got.lower(), f"the plate dropped the body again: {got}"
-        assert len(said) == 2, "the headline was not asked again after it dropped the body"
-
-        # and when it will not keep the body, the plate falls back to the sentence's own words
-        def never(key, system, prompt, max_tokens=0):
-            return {"line": "California would exempt data center projects from review"}
-
-        brief.call = never
-        got = brief.headline("k", [lead], names, {})
-        assert got == "California would put data center projects under the Governor's authority", got
-
-        # a sentence that names no body is asked once, as before
-        plainly = dict(lead, sentence="Texas would require an AI company to label synthetic media.",
-                       jurisdiction="Texas", controls="labeling-mandates")
-        asked = []
-
-        def once(key, system, prompt, max_tokens=0):
-            asked.append(1)
-            return {"line": "Texas would require labels on synthetic media"}
-
-        brief.call = once
-        assert brief.headline("k", [plainly], names, {}) == "Texas would require labels on synthetic media"
-        assert len(asked) == 1, "a sentence with no body was asked twice"
-    finally:
-        brief.call = real
-    print("the plate keeps who holds the power: ok")
 
 
 def check_label_rules():
@@ -532,10 +292,10 @@ def check_third_reading():
     """A label that passed the quote check can still say the opposite of what the measure does.
 
     The third reading asks one question per control and office label. A no takes the label off and
-    is remembered against its quote; a label not yet checked cannot lead the post; and a key that
+    is remembered against its quote; and a key that
     cannot use the stronger model falls back to the next one instead of checking nothing.
     """
-    from pipeline import brief, check
+    from pipeline import check
     from pipeline.common import connect as _connect
     import tempfile as _tempfile
     db = _connect(pathlib.Path(_tempfile.mkdtemp()) / "check.db")
@@ -552,7 +312,6 @@ def check_third_reading():
             db.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", (mid, "control", c, title, "t", iso()))
         db.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", (mid, "agency", office, title, "t", iso()))
     db.commit()
-    assert not brief.pool(db, day), "a measure led the post on labels nobody had checked"
     asked = []
 
     def fake(key, prompt):
@@ -564,9 +323,6 @@ def check_third_reading():
     left = {(r["target"], r["kind"]) for r in db.execute("SELECT target, kind FROM tags")}
     assert ("c1", "control") not in left and ("c1", "agency") not in left, "a refused label stayed on"
     assert ("c2", "control") in left and ("c2", "agency") in left, "a confirmed label was taken off"
-    lead = brief.pool(db, day)
-    assert [r["id"] for r in lead] == ["c2"] and lead[0]["office"] == "State AI Licensing Office", \
-        "only the confirmed measure, with its confirmed office, should be able to lead"
     # Read again and landing on the same quote, the refused label goes without a second question
     db.execute("INSERT INTO tags VALUES(?,?,?,?,?,?)", ("c1", "control", "license-to-build",
                                                         "Sandbox for AI testing under waived rules", "t", iso()))
@@ -598,7 +354,7 @@ def check_third_reading():
     finally:
         check.requests.post, check._model["i"] = real, 0
     assert answer["verdict"] == "yes" and model == check.MODELS[1] and calls == check.MODELS[:2], calls
-    print("a third reading takes off what the measure does not do, and only checked labels lead: ok")
+    print("a third reading takes off what the measure does not do: ok")
 
     # Fears are read too, on measures and on organizations' statements, and a label refused under a
     # definition since widened is put back once to be asked again
@@ -679,322 +435,10 @@ def check_third_reading():
     print("a revoked executive order comes off, and the order revoking it stays: ok")
 
 
-def check_second_attempt():
-    """A sentence refused for one fixable fault is written once more with the fault named.
-
-    The launch edition lost its three best leads this way: the sponsor's "child safety", three
-    characters over the limit, a would on a measure that had passed.
-    """
-    from pipeline import brief
-    row = {"id": "m1", "jurisdiction_name": "California", "identifier": "SB 1119", "status": "pending",
-           "title": "Companion chatbots.", "office": "California Attorney General", "controls": "mandatory-reporting",
-           "fears": "", "url": "u", "summary": "This bill would require an operator to submit to independent audits "
-                                             "and to make the audit reports available to the Attorney General."}
-    said = []
-
-    def fake(key, system, user, max_tokens=400):
-        said.append(user)
-        if "was refused" not in user:
-            return {"sentence": "California would put companion chatbots under independent child safety audits "
-                                "reported to the Attorney General.",
-                    "quote": "require an operator to submit to independent audits"}
-        return {"sentence": "California would give the Attorney General the power to demand the audit reports "
-                            "of companion chatbot operators.",
-                "quote": "make the audit reports available to the Attorney General"}
-    real, brief.call = brief.call, fake
-    try:
-        attempts = []
-        lines = brief.write_lines("k", [row], dt.date.today().isoformat(), 1, attempts)
-    finally:
-        brief.call = real
-    assert len(said) == 2 and "child safety" in said[1], "the second attempt was not told what was wrong"
-    assert lines and "child safety" not in lines[0]["sentence"], f"the fixed sentence was not used: {attempts}"
-    print("a refused sentence gets one more attempt with its fault named: ok")
-    assert brief.unpowered_body("New Jersey would put approvals under a moratorium and a commission's review.", [])
-    assert not brief.unpowered_body("South Carolina would put data centers under a Public Service Commission certificate.",
-                                    ["South Carolina Public Service Commission"])
-    print("a sentence names a commission only when it holds a confirmed power: ok")
 
 
-def check_power_is_the_office():
-    """The office gaining the power is who the lead is about, never a firm a company hires.
-
-    The launch edition led with "California puts companion chatbots under independent auditors
-    whose reports the Attorney General can demand", and the plate said "California puts companion
-    chatbots under independent auditors". The power in that law is the Attorney General's. A reader
-    saw a rule protecting children from chatbots, and no office gaining anything. The rules had
-    asked for exactly that shape, by example.
-    """
-    from pipeline import brief
-    assert "an auditor whose report" not in brief.RULES, "the rules still ask for the auditor shape"
-    assert "firm a company has to hire" in brief.RULES, "the rules no longer say a hired firm holds nothing"
-    summary = ("This bill would require an operator to submit to independent audits of its compliance. The "
-               "bill would authorize the Attorney General to, for cause, request and obtain a copy of an "
-               "audit report from the operator, beginning July 1, 2027.")
-    body = brief.norm(f"Companion chatbots.\n{summary}")
-    launch = ("California puts companion chatbots under independent auditors whose reports the Attorney "
-              "General can demand, beginning 2027.")
-    why = brief.why_not(launch, "require an operator to submit to independent audits", body, True, "", "2027",
-                        "California", raw=f"Companion chatbots.\n{summary}", offices=[])
-    assert "Attorney General" in why and "open with" in why, f"the auditor shape was not refused: {why!r}"
-    office = ("California gives the Attorney General the power to demand, for cause, the audit reports of "
-              "companion chatbot operators, beginning 2027.")
-    assert brief.why_not(office, "authorize the Attorney General to, for cause, request and obtain a copy",
-                         body, True, "", "2027", "California", raw=f"Companion chatbots.\n{summary}",
-                         offices=[]) == "", "a sentence leading with the office was refused"
-    for text, firm in (
-            (launch, "auditors"),
-            ("California puts companion chatbots under independent child safety audits reported to the "
-             "Attorney General.", "independent child safety audits"),
-            ("California requires every companion chatbot to be certified by an auditor the Attorney "
-             "General approves.", "auditor"),
-            ("Illinois would put hiring tools under a bias audit by an independent auditor, which the "
-             "Department of Labor could review.", "auditor"),
-            (office, ""),
-            ("California gives the Attorney General the power to demand the reports of independent "
-             "auditors.", ""),
-            ("Ohio would put every operator under the State Auditor, who could demand its records.", ""),
-            ("New York would put frontier developers under an independent AI safety office that decides "
-             "who may release a model.", ""),
-            ("California requires operators to certify compliance under penalty of perjury.", ""),
-            ("California would bar users under 18 from companion chatbots unless an independent auditor "
-             "certifies them.", ""),
-            ("California puts AI auditors under registration with the Government Operations Agency, "
-             "which licenses them.", "")):
-        assert brief.private_holder(text) == firm, f"{text[:70]!r}: {brief.private_holder(text)!r}, wanted {firm!r}"
-
-    # through write_lines: the auditor shape is refused, and told which office to lead with
-    row = {"id": "m1", "jurisdiction_name": "California", "identifier": "SB 1119", "status": "passed",
-           "title": "Companion chatbots.", "office": "", "offices": "", "controls": "mandatory-reporting",
-           "fears": "", "url": "u", "summary": summary}
-    said = []
-
-    def fake(key, system, user, max_tokens=400):
-        said.append(user)
-        if "was refused" not in user:
-            return {"sentence": launch, "quote": "require an operator to submit to independent audits"}
-        return {"sentence": office, "quote": "authorize the Attorney General to, for cause, request and obtain a copy"}
-    real, brief.call = brief.call, fake
-    try:
-        lines = brief.write_lines("k", [row], "2026-09-21", 1, [])
-    finally:
-        brief.call = real
-    assert len(said) == 2 and "open with what the Attorney General can do" in said[1], \
-        "the second attempt was not told which office to lead with"
-    assert lines and lines[0]["sentence"] == office, f"the office-first sentence was not used: {lines}"
-
-    # and the plate keeps the office, even where the sentence says it without a power phrase
-    lets = ("California lets the Attorney General demand, for cause, the audit reports of companion "
-            "chatbot operators, beginning 2027.")
-    assert brief.holder_words(lets) == {"attorney", "general"}, brief.holder_words(lets)
-    assert brief.holder_words(launch) == {"attorney", "general"}, "the plate would keep the auditors"
-    heads = ["California puts companion chatbots under independent auditors",
-             "California lets its Attorney General demand chatbot audit reports"]
-    asked = []
-
-    def two(key, system, prompt, max_tokens=0):
-        asked.append(prompt)
-        return {"line": heads[len(asked) - 1]}
-    brief.call = two
-    try:
-        got = brief.headline("k", [{"sentence": lets, "office": "", "jurisdiction": "California",
-                                    "controls": "mandatory-reporting", "head": ""}],
-                             {c["slug"]: c for c in config("controls")}, {})
-    finally:
-        brief.call = real
-    assert got == heads[1] and len(asked) == 2, f"the plate dropped the office: {got!r}"
-    assert brief.power_clause("Ohio would put every data center under the state regulators, who decide.") \
-        .endswith("regulators"), "the fallback headline stops inside a word"
-    print("the lead is about the office gaining the power, not a firm a company hires: ok")
 
 
-def check_brief_attempts():
-    """What the second run of the launch edition got wrong, one check each.
-
-    The smaller model dropped "child safety" and then tucked the power into a clause on the end
-    ("..., giving the Attorney General power to demand audit reports for cause"), was told only that
-    it "explains rather than reports", and the measure was dropped. The edition then led with New
-    York legislators who "would be required to" disclose AI-drafted remarks, a duty in the passive
-    that the duty check did not recognise.
-    """
-    from pipeline import brief, tag
-    tucked = ("California requires an operator of a companion chatbot, beginning July 1, 2027, to submit to "
-              "independent audits, giving the Attorney General power to demand audit reports for cause.")
-    summary = ("This bill would require an operator to submit to independent audits of its compliance. The bill "
-               "would authorize the Attorney General to, for cause, request and obtain a copy of an audit "
-               "report from the operator, beginning July 1, 2027.")
-    raw = f"Companion chatbots.\n{summary}"
-    why = brief.why_not(tucked, "require an operator to submit to independent audits", brief.norm(raw), True,
-                        "", "2027", "California", raw=raw, offices=[])
-    assert "clause on the end" in why and "giving the Attorney General" in why, why
-    assert brief.why_not("California puts chatbots under audits, reflecting a national trend.", "x", "x",
-                         True) == "explains rather than reports"
-    passive = ("New York members of the legislature would be required to verbally disclose before remarks "
-               "entered into the official record whether such remarks were drafted by artificial intelligence.")
-    assert brief.DUTY_OPENER.search(brief.tense_of(passive, "New York")), "a passive duty was read as a power"
-    for fine in ("California would bar chatbots directed at children from simulating romance.",
-                 "California would bar a release without the required risk assessment."):
-        assert not brief.DUTY_OPENER.search(brief.tense_of(fine, "California")), fine
-    # an office the measure never names is refused, whatever the sentence around it
-    assert brief.borrowed_office("Texas gives the Attorney General the power to demand the forecasts.",
-                                 "This bill would require a utility to file forecasts with the Public Utility "
-                                 "Commission.", "Texas") == "Attorney General"
-    assert brief.borrowed_office("Texas puts every forecast under the Public Utilities Commission.",
-                                 "file forecasts with the Public Utility Commission", "Texas") == ""
-
-    # three attempts, the last told both faults, and the third one used
-    row = {"id": "m1", "jurisdiction_name": "California", "identifier": "SB 1119", "status": "passed",
-           "title": "Companion chatbots.", "office": "", "offices": "", "controls": "mandatory-reporting",
-           "fears": "", "url": "u", "summary": summary}
-    answers = [("California requires companion chatbot operators from July 1, 2027 to submit to independent "
-                "child safety audits, giving the Attorney General power to demand audit reports for cause.",
-                "require an operator to submit to independent audits"),
-               (tucked, "require an operator to submit to independent audits"),
-               ("California gives the Attorney General the power to demand, for cause, the audit reports of "
-                "companion chatbot operators, beginning 2027.",
-                "authorize the Attorney General to, for cause, request and obtain a copy")]
-    said = []
-
-    def fake(key, system, user, max_tokens=400):
-        said.append(user)
-        s, q = answers[len(said) - 1]
-        return {"sentence": s, "quote": q}
-    real, brief.call = brief.call, fake
-    try:
-        attempts = []
-        lines = brief.write_lines("k", [row], "2026-09-21", 1, attempts)
-    finally:
-        brief.call = real
-    assert len(said) == 3, f"asked {len(said)} times"
-    assert "child safety" in said[2] and "clause on the end" in said[2], "the third attempt was not told both faults"
-    assert lines and lines[0]["sentence"] == answers[2][0], attempts
-
-    # the stronger model first, and the smaller one when the key cannot use it
-    used = []
-
-    def api(key, system, user, max_tokens=700, model=None):
-        used.append(model)
-        if model == brief.MODELS[0]:
-            raise RuntimeError('Claude API 404: {"type":"error","error":{"type":"not_found_error","message":"model"}}')
-        return {"sentence": "ok"}
-    real_tag, tag.call = tag.call, api
-    brief._model.update(i=0, unparsed=0)
-    try:
-        assert brief.call("k", "s", "u") == {"sentence": "ok"}
-        assert brief.call("k", "s", "u") == {"sentence": "ok"}
-    finally:
-        tag.call = real_tag
-        brief._model.update(i=0, unparsed=0)
-    assert used == [brief.MODELS[0], brief.MODELS[1], brief.MODELS[1]], used
-
-    # An answer with no JSON goes to the smaller model, and after two the smaller one takes the rest.
-    # The first run on the stronger model lost seven candidates in a row to this.
-    used, budgets = [], []
-
-    def unparsed(key, system, user, max_tokens=700, model=None):
-        used.append(model)
-        budgets.append(max_tokens)
-        assert user.endswith("starting with {."), "the reminder to answer in JSON is missing"
-        if model == brief.MODELS[0]:
-            raise ValueError("no JSON in reply")
-        return {"line": "ok"}
-    tag.call = unparsed
-    try:
-        for _ in range(3):
-            assert brief.call("k", "s", "u", max_tokens=150) == {"line": "ok"}
-    finally:
-        tag.call = real_tag
-        brief._model.update(i=0, unparsed=0)
-    S, H = brief.MODELS
-    assert used == [S, H, S, H, H], used
-    assert min(budgets) >= 1000, f"the answer is still given {min(budgets)} tokens"
-
-    # A start date belongs to the part of the measure it is written into. The launch edition put
-    # "beginning July 1, 2027", the date of the law's duties, on the Attorney General's power over
-    # audit reports, which sits in a section of its own over audits due by 2029.
-    two_parts = ("This bill would require an operator to, beginning July 1, 2027, before making a new "
-                 "companion chatbot available to users in the state, perform and document a risk assessment. "
-                 "The bill would authorize the Attorney General to, for cause, request and obtain a copy of "
-                 "an audit report from the operator.")
-    dated = dict(row, summary=two_parts)
-    power_q = "authorize the Attorney General to, for cause, request and obtain a copy"
-    duty_q = "before making a new companion chatbot available to users in the state"
-    assert "Attorney General" in brief.dated_part(f"Companion chatbots.\n{two_parts}", power_q)
-    for answers, want, reason in (
-            ([("California gives the Attorney General the power to request and obtain, for cause, a companion "
-               "chatbot operator's audit report, beginning July 1, 2027.", power_q),
-              ("California gives the Attorney General the power to request and obtain, for cause, a companion "
-               "chatbot operator's audit report.", power_q)], 1, "different part"),
-            ([("California puts every new companion chatbot under a risk assessment the operator must document.",
-               duty_q),
-              ("From July 1, 2027, California puts every new companion chatbot under a risk assessment the "
-               "operator must document.", duty_q)], 1, "starts in 2027")):
-        said.clear()
-
-        def fake(key, system, user, max_tokens=400, answers=answers):
-            said.append(user)
-            s, q = answers[len(said) - 1]
-            return {"sentence": s, "quote": q}
-        brief.call = fake
-        try:
-            attempts = []
-            lines = brief.write_lines("k", [dated], "2026-09-21", 1, attempts)
-        finally:
-            brief.call = real
-        assert reason in attempts[0]["reason"], attempts
-        assert lines and lines[0]["sentence"] == answers[want][0], attempts
-    print("the brief is written by the stronger model, told every fault, and reads a passive duty: ok")
-    print("a start date stays with the part of the measure it belongs to: ok")
-
-    # An operator of what. The fourth writing of the launch edition was true and never said.
-    vague = "California gives the Attorney General the power to request and obtain a copy of an operator's audit report for cause."
-    q = "authorize the Attorney General to, for cause, request and obtain a copy"
-    assert brief.why_not(vague, q, brief.norm(raw), True, "", "", "California", raw=raw, offices=[]) == brief.UNSAID
-    named = vague.replace("an operator's", "a companion chatbot operator's")
-    assert brief.why_not(named, q, brief.norm(raw), True, "", "", "California", raw=raw, offices=[]) == ""
-    elsewhere = "This bill would require a utility to file load forecasts with the commission."
-    assert "words the measure uses" in brief.why_not(
-        "Texas would give the commission the power to demand companion chatbot forecasts.",
-        "require a utility to file load forecasts", brief.norm(elsewhere), False, "", "", "Texas",
-        raw=elsewhere, offices=[]), "a borrowed AI word was accepted"
-    heads = ["California Attorney General can request operator audit reports for cause",
-             "California Attorney General can request companion chatbot audit reports"]
-    asked = []
-
-    def head(key, system, prompt, max_tokens=0):
-        asked.append(prompt)
-        return {"line": heads[len(asked) - 1]}
-    brief.call = head
-    try:
-        got = brief.headline("k", [{"sentence": named, "office": "", "jurisdiction": "California",
-                                    "controls": "mandatory-reporting", "head": ""}],
-                             {c["slug"]: c for c in config("controls")}, {})
-    finally:
-        brief.call = real
-    assert got == heads[1] and len(asked) == 2 and "what AI" in asked[1], (got, len(asked))
-    assert brief.power_clause(named) == "", "the fallback plate would read 'California gives the Attorney General'"
-    # A data center bill that never says AI is counted all the same, and neither the sentence nor its
-    # headline may call its data centers AI.
-    dc_raw = "Data centers; site assessment. Requires a locality to review the sound profile of a data center."
-    dc_q = "Requires a locality to review the sound profile of a data center"
-    added = "Virginia would give each locality the power to review the sound profile of an AI data center."
-    assert brief.why_not(added, dc_q, brief.norm(dc_raw), False, "", "", "Virginia", raw=dc_raw,
-                         offices=[]) == brief.AI_ADDED
-    plain = added.replace("an AI data center", "a data center")
-    assert brief.why_not(plain, dc_q, brief.norm(dc_raw), False, "", "", "Virginia", raw=dc_raw,
-                         offices=[]) != brief.AI_ADDED
-    heads = ["Virginia localities would review AI data center noise",
-             "Virginia localities would review data center noise"]
-    asked.clear()
-    brief.call = head
-    try:
-        got = brief.headline("k", [{"sentence": plain, "office": "", "jurisdiction": "Virginia",
-                                    "controls": "data-center-limits", "head": ""}],
-                             {c["slug"]: c for c in config("controls")}, {})
-    finally:
-        brief.call = real
-    assert got == heads[1] and len(asked) == 2 and "says AI where the sentence does not" in asked[1], (got, asked)
-    print("a sentence and its plate say what AI the measure is about: ok")
 
 
 def check_lobbying_money():
@@ -2211,14 +1655,13 @@ def check_use_restrictions():
     that forbade landlords to set rents by algorithm, or made an AI-made sexual image a crime, put
     the people using AI under a new rule and counted as adding no control at all.
     """
-    from pipeline import brief, check
+    from pipeline import check
     cs = {c["slug"]: c for c in config("controls")}
     c = cs["use-restrictions"]
     assert {"slug", "name", "chip", "definition", "head", "pattern"} <= set(c), c
     assert "government's own use" in c["definition"], "the definition lets the government's own use in"
     assert "use-restrictions" in check.ORDER and "use-restrictions" in check.CONTROL_NOTES
     assert "labels and notices" in check.CONTROL_NOTES["use-restrictions"], "the note does not keep labels out"
-    assert brief.WEIGHT.get("use-restrictions"), "the brief does not know what a ban is worth"
     print("a ban or limit on a use of AI counts as a control: ok")
 
 
@@ -2341,7 +1784,7 @@ def check_loss_of_control_reread():
     print("a measure acting on catastrophic risk is asked again about loss of control: ok")
 
 
-def check_every_page_asks(dist, db, day):
+def check_every_page_asks(dist, db):
     """The pitch-in is on every page, and no page carries the X account.
 
     The pitch-in lives in base.html, which is easy to undo by accident, hence this. The X account
@@ -2381,22 +1824,6 @@ def check_every_page_asks(dist, db, day):
         "the copy button claims success when the copy failed"
     assert 'then(function () { say("Copied"); }, failed)' in js, \
         "the copy button no longer separates success from failure"
-
-    # Three states, because the card comes from two places. With the key, the headline is known.
-    # Without it, the table still knows which days were published, which is every edition written
-    # before the key existed. With neither, the section has to render without a card rather than
-    # point at a picture that was never made.
-    db.execute("DELETE FROM kv WHERE key='brief:latest'")
-    db.execute("INSERT OR REPLACE INTO brief(target, edition, sentence, evidence, office, "
-               "controls, written_at) VALUES('t', '2026-09-19', 's', 'q', '', '', '')")
-    db.commit()
-    fell_back = export.brief_latest(db)
-    assert fell_back and fell_back["date"] == "2026-09-19", \
-        f"the table should still name an edition: {fell_back}"
-    assert fell_back["alt"].strip(), "a card with no headline still needs alt text"
-    db.execute("DELETE FROM brief")
-    db.commit()
-    assert export.brief_latest(db) is None, "a database with no edition at all must report no card"
     print(f"the pitch-in is on all {len(pages)} pages and none refers to X: ok")
 
 
@@ -2859,8 +2286,6 @@ def main():
     check_loss_of_control_reread()
     check_candidates()
     check_use_restrictions()
-    check_brief_prompt()
-    check_plate_fits()
     check_mark_geometry()
     check_icon_centred()
     check_share_card_fits()
@@ -2870,13 +2295,8 @@ def main():
     check_fec_sweep()
     check_failed_source_retries()
     check_overdue_daily_source()
-    check_places_word()
-    check_headline_keeps_the_power()
     check_label_rules()
     check_third_reading()
-    check_second_attempt()
-    check_power_is_the_office()
-    check_brief_attempts()
     check_status_and_coverage()
     check_lobbying_money()
     check_lobbying_keywords()
@@ -2969,34 +2389,6 @@ def main():
     assert data["index"]["value"] != "0", data["index"]
     assert data["index"]["total_measures"] == 40, \
         f"a carried-over bill was counted twice: {data['index']['total_measures']} measures, not 40"
-    # The plate goes out on X while the page it describes is one click away. They are counted by
-    # two different pieces of code, so the numbers are held against each other here.
-    from pipeline.brief import totals as plate_totals  # noqa: E402
-    plate = plate_totals(db)
-    chain = {label: value for value, label in data["index"]["chain"]}
-    for word, key in (("bills, resolutions, rules and orders", "measures"),
-                      ("new government control", "controlled"),
-                      ("would hand new power", "offices")):
-        label = next((l for l in chain if word in l), None)
-        assert label, f"the front page stopped saying {word!r}; the plate still counts it"
-        assert chain[label] == f"{plate[key]:,}", \
-            f"the plate says {plate[key]:,} and the page says {chain[label]} for {word!r}"
-    # The plate counts offices in two places of its own, and they drifted apart once already.
-    from pipeline.brief import patterns as plate_patterns  # noqa: E402
-    lines = plate_patterns(db, dt.date.today().isoformat(), ())
-    offices = next((l for l in lines if l["key"].startswith("offices:")), None)
-    assert offices, "the plate stopped counting offices"
-    assert offices["key"] == f"offices:{plate['offices']}", \
-        f"the plate's office line says {offices['key']} and its own total says {plate['offices']}"
-    # A fear count says which fear, and under a lead that cites one it counts that one. "Name the
-    # same fear: Deepfakes" went out under a lead citing children and chatbots.
-    fear_lines = [l for l in lines if l["key"].startswith("fear:")]
-    assert fear_lines and not any("same fear" in l["sentence"] for l in fear_lines), fear_lines
-    from pipeline.brief import spare_for as plate_spare  # noqa: E402
-    for l in fear_lines:
-        slug = l["key"].split(":")[1]
-        got = plate_spare(db, {"fears": slug, "controls": ""}, dt.date.today().isoformat(), set())
-        assert any(p["key"] == l["key"] for p in got), f"a lead citing {slug} got {[p['key'] for p in got]}"
     assert data["fears"] and data["controls"]
     # The top of the page has to say who ends up holding the controls, not just that they exist
     assert "office" in (data["exhibit"]["bought"] or ""), \
@@ -3008,15 +2400,6 @@ def main():
     assert data["industry"], "company and trade group lobbying should rank separately"
     assert not ({f["name"] for f in data["funders"]} & {i["name"] for i in data["industry"]}), \
         "an organization must appear in one ranking or the other, never both"
-    # An edition on record, so the page shows the card rather than only the words about it. The
-    # real one is written by pipeline.brief; this is the row it leaves behind.
-    from pipeline.common import kv_set as _kv_set  # noqa: E402
-    brief_day = dt.date.today().isoformat()
-    _kv_set(db, "brief:latest", {"edition": brief_day, "headline": "An office takes a register",
-                                 "alt": "A card from the AI Fear Report."})
-    db.commit()
-    data = export.export(db, tmp, "")
-    assert data["brief"]["image"] == f"/brief/{brief_day}.png", data["brief"]
     site = ROOT / "site" / "build.py"
     subprocess.run([sys.executable, str(site), "--data", str(tmp / "site_data.json"), "--out", str(tmp / "dist"),
                     "--base", ""], check=True)
@@ -3033,7 +2416,7 @@ def main():
         # Election receipts run the length of a two-year cycle, not the last four quarters
         assert "election money, past year" not in body and "election money this year" not in body, \
             f"{page.name} dates cycle-to-date election money as a year"
-    check_every_page_asks(tmp / "dist", db, brief_day)
+    check_every_page_asks(tmp / "dist", db)
     check_links_open_right(tmp / "dist")
     check_states(tmp / "dist", data)
     check_bills_page(tmp / "dist", data)

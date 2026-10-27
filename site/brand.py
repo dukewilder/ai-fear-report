@@ -1,7 +1,7 @@
-"""The account's fixed images: the avatar, the header, and the plate a brief goes out on.
+"""The site's fixed images: the avatar, the header and the share card.
 
 These are the parts that never change, so they are drawn once and committed rather than built
-every run. The card is the same mark at 1600 by 900, which is the size X shows at full width.
+every run.
 
     python -m site.brand --out site/static/brand
 """
@@ -313,61 +313,6 @@ def share(path, tagline="Fear of AI, and what it buys.", w=1200, h=630):
 HEAD_SIZES = (100, 92, 84, 76, 68, 60)
 
 
-def fit_headline(d, headline, room_across, room_down, track=1.6):
-    """The largest size at which the whole headline fits the space, and how it breaks.
-
-    The card used to set three lines at one size and drop whatever did not fit, so an eleven word
-    headline went out reading "...UNDER ENVIRONMENTAL" and stopping. A smaller headline is still
-    the headline. Half of one is a different claim.
-    """
-    for size in HEAD_SIZES:
-        f = font("barlow-condensed-800", size)
-        lines = wrap(d, headline.upper(), f, room_across, track)
-        step = round(size * 1.04)
-        if len(lines) * step <= room_down:
-            return f, lines, step
-    return f, lines, step  # smaller than this is unreadable; it runs long rather than losing words
-
-
-def plate(path, date, headline="", w=1600, h=900):
-    """The image a brief goes out on: the mark, the date, one line, the address.
-
-    The post carries the entries. This carries the masthead, so the account is recognisable in a
-    feed at thumbnail size, which a page of small type is not.
-    """
-    im = Image.new("RGB", (w, h), VERMILLION)
-    d = ImageDraw.Draw(im)
-    pad = 92
-
-    mark = 120
-    _, mark_h = wordmark(d, pad, pad + 24, mark)
-
-    f_date = font("ibm-plex-mono-600", 30)
-    spaced(d, (pad + 4, pad + 24 + mark * 1.62), date.upper(), f_date, PAPER, 4.0)
-
-    y = pad + 24 + mark * 1.62 + 132
-    room = (h - pad - 30) - 34 - y   # down to the address, with a line's clearance above it
-    if headline:
-        f_head, lines, step = fit_headline(d, headline, w - pad * 2, room)
-        d.line([(pad, y - 56), (pad + 170, y - 56)], fill=PAPER, width=5)
-        for line in lines:
-            spaced(d, (pad, y), line, f_head, PAPER, 1.6)
-            y += step
-
-    f_url = font("ibm-plex-mono-600", 34)
-    url = "aifearreport.com"
-    uw = width(d, url, f_url, 3.0)
-    spaced(d, (pad, h - pad - 30), url, f_url, PAPER, 3.0)
-    f_h = font("ibm-plex-mono-500", 30)
-    handle = "@aiFearReport"
-    hw = width(d, handle, f_h, 2.4)
-    spaced(d, (w - pad - hw, h - pad - 28), handle, f_h, PAPER, 2.4)
-
-    pathlib.Path(path).parent.mkdir(parents=True, exist_ok=True)
-    im.save(path, "PNG", optimize=True)
-    return path
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="site/static/brand")
@@ -376,7 +321,6 @@ def main():
     print(avatar(out / "avatar.png", size=800, label=True))
     print(header(out / "header.png"))
     print(share(out / "share.png"))
-    print(plate(out / "plate.png", "Saturday 19 September 2026"))
 
 
 if __name__ == "__main__":
