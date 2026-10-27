@@ -272,8 +272,7 @@ class Http:
 SECRET_PARAM = re.compile(
     r"((?:api[_-]?key|apikey|key|token|access_token|client_secret|password)=)[^&\s'\"<>:,)]+", re.I)
 SECRET_ENVS = ("CONGRESS_API_KEY", "OPENSTATES_API_KEY", "FEC_API_KEY", "LDA_API_KEY",
-               "ANTHROPIC_API_KEY", "X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN",
-               "X_ACCESS_SECRET", "GH_TOKEN", "GITHUB_TOKEN", "CONTACT_EMAIL")
+               "ANTHROPIC_API_KEY", "GH_TOKEN", "GITHUB_TOKEN", "CONTACT_EMAIL")
 
 
 def scrub(text):

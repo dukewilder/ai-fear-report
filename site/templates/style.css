@@ -284,8 +284,6 @@ a.copy.donate{text-decoration:none}
 /* The card the account posts, shown at its own 16:9 so the box never changes height as the
    picture loads and nothing under it jumps. Capped well short of the column: it is an example of
    what arrives, not the thing the page is for. */
-.brief-card{display:block;max-width:520px;margin-top:16px;border:1px solid var(--ink);line-height:0}
-.brief-card img{display:block;width:100%;height:auto;aspect-ratio:16/9}
 /* Pitch in: two ways to pay, each in its own panel. Stacked below 700px, side by side above it.
    700 is measured, not picked. A 34-character address in 13px Plex Mono is 265px wide, and half
    of a 700px viewport leaves it 286px inside the padding. At 640 it would get 256 and break

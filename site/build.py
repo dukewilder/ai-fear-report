@@ -496,8 +496,6 @@ def structured(page, d, site_url, name, image, logo):
         if logo:
             org["logo"] = {"@type": "ImageObject", "url": logo, "width": 512, "height": 512}
         same = []
-        if (d.get("site") or {}).get("x_handle"):
-            same.append(f"https://x.com/{d['site']['x_handle']}")
         if (d.get("links") or {}).get("code"):
             same.append(d["links"]["code"])
         if same:

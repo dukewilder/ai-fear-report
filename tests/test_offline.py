@@ -343,79 +343,6 @@ def check_fec_sweep():
     print("the FEC register sweep: ok")
 
 
-def check_post_needs_entries():
-    """An edition is posted from the database, not from whatever file is lying about.
-
-    The file on the data branch outlives the code that wrote it. A pass that clears the day to
-    write it again and then cannot write it leaves the old file in place, and the poster reads
-    files. Without this guard the morning post would carry a sentence the current code has
-    already refused. So: rows for the day, or nothing goes out.
-    """
-    from pipeline import post
-    from pipeline.common import connect as _connect, kv_get as _kv_get
-    import tempfile as _tempfile
-    room = pathlib.Path(_tempfile.mkdtemp())
-    db = _connect(room / "post.db")
-    day = "2026-09-20"
-    briefs = room / "brief"
-    briefs.mkdir()
-    (briefs / f"{day}.json").write_text(json.dumps(
-        {"edition": day, "headline": "stale", "text": "a sentence the code has since refused",
-         "alt": "", "lines": []}))
-
-    def refuse():
-        raise AssertionError("the poster reached for credentials with nothing written for the day")
-
-    kept, post.credentials = post.credentials, refuse
-    try:
-        assert post.run(db, str(briefs), day) is None, "a stale file was posted"
-        db.execute("INSERT INTO brief(target, edition, sentence, evidence, office, controls, "
-                   "written_at) VALUES(?,?,?,?,?,?,?)",
-                   ("t1", day, "a sentence this code wrote", "", "", "", iso(dt.datetime.now())))
-        db.commit()
-        try:
-            post.run(db, str(briefs), day)
-        except AssertionError as e:
-            if "reached for credentials" not in str(e):
-                raise
-        else:
-            raise AssertionError("the guard held an edition the database does have")
-    finally:
-        post.credentials = kept
-    # And when X refuses the post, the reason is written down where it can be read later
-    room2 = pathlib.Path(_tempfile.mkdtemp())
-    db2 = _connect(room2 / "post.db")
-    briefs2 = room2 / "brief"
-    briefs2.mkdir()
-    (briefs2 / f"{day}.json").write_text(json.dumps(
-        {"edition": day, "headline": "h", "text": "x" * 444, "alt": "", "lines": []}))
-    db2.execute("INSERT INTO brief(target, edition, sentence, evidence, office, controls, "
-                "written_at) VALUES(?,?,?,?,?,?,?)",
-                ("t1", day, "s", "", "", "", iso(dt.datetime.now())))
-    db2.commit()
-
-    def refuse_post(*a, **k):
-        raise RuntimeError("X refused the post: 403 Your account is not allowed to post this")
-
-    kept_creds, kept_pub = post.credentials, post.publish
-    post.credentials, post.publish = (lambda: {"key": "k", "secret": "s", "token": "t",
-                                               "token_secret": "ts"}), refuse_post
-    try:
-        try:
-            post.run(db2, str(briefs2), day)
-        except RuntimeError:
-            pass
-        else:
-            raise AssertionError("a refusal from X was swallowed instead of failing the run")
-    finally:
-        post.credentials, post.publish = kept_creds, kept_pub
-    noted = _kv_get(db2, f"post:refused:{day}")
-    assert noted, "X refused the post and nothing was written down"
-    assert noted["characters"] == 444, f"the length was not recorded: {noted}"
-    assert "403" in noted["why"], f"the reason was not recorded: {noted}"
-    print("the poster refuses a stale edition, and records a refusal: ok")
-
-
 def check_failed_source_retries():
     """A daily source that errors is tried again today, not tomorrow.
 
@@ -1952,7 +1879,7 @@ def check_search(dist, data_path, tmp):
     ds = next(g for g in graph(home) if g["@type"] == "Dataset")
     assert 50 <= len(ds["description"]) <= 5000 and len(ds["distribution"]) == 4, ds
     org = next(g for g in graph(home) if g["@type"] == "Organization")
-    assert org["logo"]["url"].endswith("/icon/512.png") and "https://x.com/aiFearReport" in org["sameAs"], org
+    assert org["logo"]["url"].endswith("/icon/512.png") and "x.com" not in " ".join(org.get("sameAs", [])), org
     sitemap = (dist / "sitemap.xml").read_text()
     assert "changefreq" not in sitemap and "priority" not in sitemap, "the sitemap still carries fields both engines ignore"
     listed = set(re.findall(r"<loc>([^<]+)</loc>", sitemap))
@@ -2415,28 +2342,19 @@ def check_loss_of_control_reread():
 
 
 def check_every_page_asks(dist, db, day):
-    """The brief and the pitch-in are on every page, in that order, and the card is real.
+    """The pitch-in is on every page, and no page carries the X account.
 
-    They used to live in the front page's own template, so a reader who arrived on a fear page
-    from a link reached the end of the report with nothing to do. Moved into base.html, which is
-    easy to undo by accident, hence this.
-
-    The card is checked as a path, because pass.sh copies state/brief into dist/brief after the
-    build: an <img> naming an edition that was never written is a broken picture on every page at
-    once, not one. And nothing on any page may load from another host. The obvious way to show an
-    X account is X's own timeline widget, which is a third-party script on every page, a set of
-    X's cookies for every reader, and a box that does not match this site in either theme.
+    The pitch-in lives in base.html, which is easy to undo by accident, hence this. The X account
+    was taken off the site, so no page may link to it, and nothing on any page may load from
+    another host.
     """
     pages = sorted(dist.rglob("*.html"))
     assert len(pages) >= 5, f"only {len(pages)} pages built"
     for p in pages:
         t, where = p.read_text(), p.relative_to(dist).as_posix()
-        assert 'id="brief"' in t, f"{where} has no daily brief section"
+        assert 'x.com/' not in t and 'twitter:site' not in t, f"{where} still refers to the X account"
+        assert 'id="brief"' not in t, f"{where} still has the daily brief section"
         assert 'id="keep"' in t, f"{where} has no pitch-in section"
-        assert t.index('id="brief"') < t.index('id="keep"'), \
-            f"{where} puts the pitch-in above the brief"
-        assert 'class="brief-card"' in t, f"{where} names an edition but shows no card"
-        assert f"/brief/{day}.png" in t, f"{where} points at the wrong edition"
         for m in re.finditer(r'<(?:img|script|iframe)[^>]+src="(?:https?:)?//([^"/]+)', t):
             # One exception, named rather than assumed: the counter, which sets no cookie and
             # follows nobody between sites. Anything else arriving here is a new third party
@@ -2479,7 +2397,7 @@ def check_every_page_asks(dist, db, day):
     db.execute("DELETE FROM brief")
     db.commit()
     assert export.brief_latest(db) is None, "a database with no edition at all must report no card"
-    print(f"the brief and the pitch-in are on all {len(pages)} pages, brief first: ok")
+    print(f"the pitch-in is on all {len(pages)} pages and none refers to X: ok")
 
 
 def check_icon_centred():
@@ -2950,7 +2868,6 @@ def main():
     check_fears_config()
     check_no_euphemism()
     check_fec_sweep()
-    check_post_needs_entries()
     check_failed_source_retries()
     check_overdue_daily_source()
     check_places_word()

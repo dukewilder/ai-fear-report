@@ -60,29 +60,9 @@ one_pass() {
   echo "::group::pass $1 at $(date -u +%H:%MZ)"
   python -m pipeline.run --mode "$MODE" --only "$ONLY" --db state/index.db --out state \
     || { echo "::error::pass $1 ended in an error; whatever it saved before that is kept"; failed=1; }
-  # One edition of the brief a day, written but not posted. It rides the data branch so the
-  # next run knows what has already been said, and is copied onto the site to be looked at.
-  if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
-    python -m pipeline.brief --db state/index.db --out state/brief \
-      || echo "::warning::pass $1 wrote no brief"
-  fi
   if [ -f state/index.db ] && [ $(( $(date +%s) - data_saved )) -ge "$DATA_EVERY" ] && intact; then
     save state data Data
     data_saved=$(date +%s)
-  fi
-  # One post a day, from POST_HOUR in New York onward, and once: the database remembers the
-  # date it went. The window stays open for the rest of the day rather than closing at the end
-  # of the hour, so an hour GitHub does not serve delays the edition instead of losing it.
-  # Unset POST_HOUR and nothing is ever posted. update.yml sets it, so posting is on.
-  if [ -n "${POST_HOUR:-}" ] && [ -n "${X_API_KEY:-}" ] \
-     && [ "$(TZ=America/New_York date +%-H)" -ge "$POST_HOUR" ]; then
-    rm -f posted.flag
-    python -m pipeline.post --db state/index.db --brief state/brief --flag posted.flag \
-      || echo "::warning::pass $1 could not post the brief"
-    if [ -f posted.flag ] && intact; then
-      save state data Data   # so the next pass knows it already went
-      data_saved=$(date +%s)
-    fi
   fi
   if [ -f state/site_data.json ]; then
     rm -rf dist
@@ -92,7 +72,6 @@ one_pass() {
       touch dist/.nojekyll
       # Pages keeps the custom domain in this file, and every pass replaces the branch
       printf 'aifearreport.com\n' > dist/CNAME
-      [ -d state/brief ] && cp -r state/brief dist/brief
       # Not published from a database that shrank, and not left for the Pages artifact to upload
       # either: the first pass's upload step would otherwise publish what this line refused.
       if intact && save dist gh-pages Site; then
