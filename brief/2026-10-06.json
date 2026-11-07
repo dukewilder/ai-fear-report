@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-06",
+ "headline": "California bars impersonation, extends suits over digital replicas",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCalifornia bars false impersonation carried out with a digital replica and extends the right to sue over unauthorized use of a voice or likeness to digital replicas. Passed. It cites the fear that anyone can now fake anyone.\n\n382 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime.\n\n27 measures in 17 jurisdictions cite the fear that AI is taking people's personal data.\n\n2,240 measures tracked. 755 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-10-06.png",
+ "alt": "A card from the AI Fear Report headed: California bars impersonation, extends suits over digital replicas. California bars false impersonation carried out with a digital replica and extends the right to sue over unauthorized use of a voice or likeness to digital replicas. 382 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime. 27 measures in 17 jurisdictions cite the fear that AI is taking people's personal data.",
+ "lines": [
+  {
+   "target": "os-a1113777-0d96-4300-b33f-6c2f82a6078f",
+   "sentence": "California bars false impersonation carried out with a digital replica and extends the right to sue over unauthorized use of a voice or likeness to digital replicas.",
+   "quote": "false impersonation includes the use of a digital replica with the intent to impersonate another",
+   "office": "",
+   "controls": "use-restrictions",
+   "fears": "deepfakes",
+   "jurisdiction": "California",
+   "url": "https://openstates.org/ca/bills/20252026/SB1111/",
+   "status": "passed",
+   "action": "Chaptered by Secretary of State. Chapter 862, Statutes of 2026.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:use-restrictions:382",
+   "sentence": "382 measures in 48 jurisdictions would ban or restrict a use of AI, or make one a crime.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Use limits",
+   "head": "382 measures in 48 jurisdictions: bans and limits on uses of AI",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:privacy:27",
+   "sentence": "27 measures in 17 jurisdictions cite the fear that AI is taking people's personal data.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Privacy and personal data",
+   "head": "27 measures name the same fear: Privacy and personal data",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2240,
+  "controlled": 755,
+  "offices": 101
+ }
+}

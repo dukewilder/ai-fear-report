@@ -1,0 +1,51 @@
+{
+ "edition": "2026-09-28",
+ "headline": "New Jersey would let office prevent algorithm discrimination",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nNew Jersey would give the Office of Algorithmic Civil Rights the power to prevent discrimination in the use of algorithms. Not passed. It cites the fear that an algorithm decides who gets hired, housed, or lent to.\n\n115 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.\n\n53 measures in 14 jurisdictions cite the fear that an algorithm decides who gets hired, housed, or lent to.\n\n2,215 measures tracked. 748 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-09-28.png",
+ "alt": "A card from the AI Fear Report headed: New Jersey would let office prevent algorithm discrimination. New Jersey would give the Office of Algorithmic Civil Rights the power to prevent discrimination in the use of algorithms. 115 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers. 53 measures in 14 jurisdictions cite the fear that an algorithm decides who gets hired, housed, or lent to.",
+ "lines": [
+  {
+   "target": "os-5558c5c4-a2ec-435d-b78b-31c7dddf203e",
+   "sentence": "New Jersey would give the Office of Algorithmic Civil Rights the power to prevent discrimination in the use of algorithms.",
+   "quote": "prevent discrimination in use of algorithms",
+   "office": "",
+   "controls": "new-agency-powers",
+   "fears": "bias",
+   "jurisdiction": "New Jersey",
+   "url": "https://openstates.org/nj/bills/222/A5550/",
+   "status": "pending",
+   "action": "Introduced, Referred to Assembly Science, Innovation and Technology Committee",
+   "kind": "bill"
+  },
+  {
+   "target": "control:new-agency-powers:115",
+   "sentence": "115 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "New agency powers",
+   "head": "115 measures in 32 jurisdictions: new authority over AI or data centers for a government body",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:bias:53",
+   "sentence": "53 measures in 14 jurisdictions cite the fear that an algorithm decides who gets hired, housed, or lent to.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Algorithmic bias",
+   "head": "53 measures name the same fear: Algorithmic bias",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2215,
+  "controlled": 748,
+  "offices": 101
+ }
+}

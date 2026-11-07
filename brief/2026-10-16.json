@@ -1,0 +1,39 @@
+{
+ "edition": "2026-10-16",
+ "headline": "Pennsylvania would ban AI chatbots in children's toys",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nPennsylvania would prohibit artificial intelligence chatbots in children's toys and would impose penalties on violators. Not passed. It cites the fear that children are talking to chatbots.\n\nSix measures in five states cite the fear that cars are driving themselves.\n\n2,250 measures tracked. 757 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-16.png",
+ "alt": "A card from the AI Fear Report headed: Pennsylvania would ban AI chatbots in children's toys. Pennsylvania would prohibit artificial intelligence chatbots in children's toys and would impose penalties on violators. Six measures in five states cite the fear that cars are driving themselves.",
+ "lines": [
+  {
+   "target": "os-ef3844dc-dfec-4d42-bdf9-5e28b1350e19",
+   "sentence": "Pennsylvania would prohibit artificial intelligence chatbots in children's toys and would impose penalties on violators.",
+   "quote": "providing for a temporary prohibition on artificial intelligence chatbots in children's toys",
+   "office": "",
+   "controls": "use-restrictions",
+   "fears": "kids-chatbots",
+   "jurisdiction": "Pennsylvania",
+   "url": "https://openstates.org/pa/bills/2025-2026/HB2637/",
+   "status": "pending",
+   "action": "Laid on the table",
+   "kind": "bill"
+  },
+  {
+   "target": "fear:self-driving:6",
+   "sentence": "Six measures in five states cite the fear that cars are driving themselves.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Self-driving vehicles",
+   "head": "6 measures name the same fear: Self-driving vehicles",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2250,
+  "controlled": 757,
+  "offices": 100
+ }
+}

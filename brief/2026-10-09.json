@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-09",
+ "headline": "Pennsylvania would let Attorney General enforce data center bans",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nPennsylvania would give the Attorney General the power to enforce bans on data centers being developed or operated by certain foreign entities. Not passed.\n\n170 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.\n\n90 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.\n\n2,245 measures tracked. 755 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-09.png",
+ "alt": "A card from the AI Fear Report headed: Pennsylvania would let Attorney General enforce data center bans. Pennsylvania would give the Attorney General the power to enforce bans on data centers being developed or operated by certain foreign entities. Held by Pennsylvania Attorney General. 170 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on. 90 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+ "lines": [
+  {
+   "target": "os-854754e3-460f-4e70-b097-a63dfd3c2f38",
+   "sentence": "Pennsylvania would give the Attorney General the power to enforce bans on data centers being developed or operated by certain foreign entities.",
+   "quote": "prohibiting data centers from being developed or operated by certain foreign entities",
+   "office": "Pennsylvania Attorney General",
+   "controls": "new-agency-powers",
+   "fears": "",
+   "jurisdiction": "Pennsylvania",
+   "url": "https://openstates.org/pa/bills/2025-2026/SB1408/",
+   "status": "pending",
+   "action": "Re-reported as amended",
+   "kind": "bill"
+  },
+  {
+   "target": "control:labeling-mandates:170",
+   "sentence": "170 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Label or AI notice",
+   "head": "170 measures in 40 jurisdictions: labels and notices of AI use",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:power-bills:90",
+   "sentence": "90 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Power bills and data centers",
+   "head": "90 measures name the same fear: Power bills and data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2245,
+  "controlled": 755,
+  "offices": 100
+ }
+}
