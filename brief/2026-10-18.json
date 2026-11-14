@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-18",
+ "headline": "118 measures in 32 jurisdictions: new authority over AI or data centers for a government body",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\n118 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.\n\n100 named offices would gain a power over AI. The one named most often is the Virginia Attorney General, in eight measures.\n\n$85.2 million from 144 donors sits in five political committees working on AI policy.\n\n2,272 measures tracked. 760 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-18.png",
+ "alt": "A card from the AI Fear Report headed: 118 measures in 32 jurisdictions: new authority over AI or data centers for a government body. 118 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers. 100 named offices would gain a power over AI. The one named most often is the Virginia Attorney General, in eight measures. $85.2 million from 144 donors sits in five political committees working on AI policy.",
+ "lines": [
+  {
+   "target": "control:new-agency-powers:118",
+   "sentence": "118 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "fears": "",
+   "meta": "New agency powers",
+   "head": "118 measures in 32 jurisdictions: new authority over AI or data centers for a government body",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "offices:100",
+   "sentence": "100 named offices would gain a power over AI. The one named most often is the Virginia Attorney General, in eight measures.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "",
+   "head": "100 offices would gain a power over AI",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "money:85188115",
+   "sentence": "$85.2 million from 144 donors sits in five political committees working on AI policy.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "C3.Ai Inc. Pac, Humanity Above Artificial Intelligence Pac, Leading The Future, Public First, The Ai Policy Network Inc Aipn Pac Inc",
+   "head": "$85.2 million in 5 committees on AI policy",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2272,
+  "controlled": 760,
+  "offices": 100
+ }
+}

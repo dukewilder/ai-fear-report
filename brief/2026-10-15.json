@@ -1,0 +1,39 @@
+{
+ "edition": "2026-10-15",
+ "headline": "Pennsylvania would limit AI data use, allow lawsuits",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nPennsylvania would limit how companies may use a person's data to create artificial intelligence simulations, and would let that person sue over violations. Not passed. It cites the fear that AI is taking people's personal data.\n\n11 measures in six jurisdictions cite the fear that AI makes scams easier to run.\n\n2,250 measures tracked. 757 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-15.png",
+ "alt": "A card from the AI Fear Report headed: Pennsylvania would limit AI data use, allow lawsuits. Pennsylvania would limit how companies may use a person's data to create artificial intelligence simulations, and would let that person sue over violations. 11 measures in six jurisdictions cite the fear that AI makes scams easier to run.",
+ "lines": [
+  {
+   "target": "os-70221ba3-1564-4cfd-ba2c-77cce3018e15",
+   "sentence": "Pennsylvania would limit how companies may use a person's data to create artificial intelligence simulations, and would let that person sue over violations.",
+   "quote": "limitations on the use of user data in the creation of artificial intelligence simulations and for private right of action",
+   "office": "",
+   "controls": "use-restrictions",
+   "fears": "privacy",
+   "jurisdiction": "Pennsylvania",
+   "url": "https://openstates.org/pa/bills/2025-2026/HB2666/",
+   "status": "pending",
+   "action": "Laid on the table",
+   "kind": "bill"
+  },
+  {
+   "target": "fear:ai-scams:11",
+   "sentence": "11 measures in six jurisdictions cite the fear that AI makes scams easier to run.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "AI scams",
+   "head": "11 measures name the same fear: AI scams",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2250,
+  "controlled": 757,
+  "offices": 100
+ }
+}
