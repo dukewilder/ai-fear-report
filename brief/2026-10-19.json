@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-19",
+ "headline": "5 measures name the same fear: China race",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nFive measures in one jurisdiction cite the fear that China is ahead, or about to be.\n\nFive measures in five jurisdictions cite the fear that AI might get away from the people running it.\n\nFive measures in four jurisdictions cite the fear that AI is built on work nobody paid for.\n\n2,272 measures tracked. 760 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-19.png",
+ "alt": "A card from the AI Fear Report headed: 5 measures name the same fear: China race. Five measures in one jurisdiction cite the fear that China is ahead, or about to be. Five measures in five jurisdictions cite the fear that AI might get away from the people running it. Five measures in four jurisdictions cite the fear that AI is built on work nobody paid for.",
+ "lines": [
+  {
+   "target": "fear:china-race:5",
+   "sentence": "Five measures in one jurisdiction cite the fear that China is ahead, or about to be.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "fears": "",
+   "meta": "China race",
+   "head": "5 measures name the same fear: China race",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:loss-of-control:5",
+   "sentence": "Five measures in five jurisdictions cite the fear that AI might get away from the people running it.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Loss of control",
+   "head": "5 measures name the same fear: Loss of control",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:copyright:5",
+   "sentence": "Five measures in four jurisdictions cite the fear that AI is built on work nobody paid for.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "AI taking creators' work",
+   "head": "5 measures name the same fear: AI taking creators' work",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2272,
+  "controlled": 760,
+  "offices": 100
+ }
+}

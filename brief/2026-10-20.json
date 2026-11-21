@@ -1,0 +1,39 @@
+{
+ "edition": "2026-10-20",
+ "headline": "172 measures in 40 jurisdictions: labels and notices of AI use",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\n172 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.\n\n106 measures in 27 states would require a company to file reports with a government body, or hand them over on demand.\n\n2,272 measures tracked. 760 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-20.png",
+ "alt": "A card from the AI Fear Report headed: 172 measures in 40 jurisdictions: labels and notices of AI use. 172 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on. 106 measures in 27 states would require a company to file reports with a government body, or hand them over on demand.",
+ "lines": [
+  {
+   "target": "control:labeling-mandates:172",
+   "sentence": "172 measures in 40 jurisdictions would require a label, watermark, or disclosure on AI content, or a notice to the people AI is used on.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "fears": "",
+   "meta": "Label or AI notice",
+   "head": "172 measures in 40 jurisdictions: labels and notices of AI use",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "control:mandatory-reporting:106",
+   "sentence": "106 measures in 27 states would require a company to file reports with a government body, or hand them over on demand.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Mandatory reporting",
+   "head": "106 measures in 27 states: reports companies must file with the government",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2272,
+  "controlled": 760,
+  "offices": 100
+ }
+}

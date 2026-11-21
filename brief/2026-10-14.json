@@ -1,0 +1,51 @@
+{
+ "edition": "2026-10-14",
+ "headline": "Congress would bar data centers on Federal land",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCongress would bar the construction of data centers on Federal land. Not passed.\n\n123 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.\n\n11 measures in seven jurisdictions cite the fear that AI makes it easy to spread what is not true.\n\n2,249 measures tracked. 757 carry a control, and they would hand new power to 100 offices.",
+ "image": "state/brief/2026-10-14.png",
+ "alt": "A card from the AI Fear Report headed: Congress would bar data centers on Federal land. Congress would bar the construction of data centers on Federal land. 123 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them. 11 measures in seven jurisdictions cite the fear that AI makes it easy to spread what is not true.",
+ "lines": [
+  {
+   "target": "us-119-s-5658",
+   "sentence": "Congress would bar the construction of data centers on Federal land.",
+   "quote": "prohibit the construction of data centers on Federal land",
+   "office": "",
+   "controls": "data-center-limits",
+   "fears": "",
+   "jurisdiction": "Congress",
+   "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5658",
+   "status": "pending",
+   "action": "Read twice and referred to the Committee on Energy and Natural Resources.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:data-center-limits:123",
+   "sentence": "123 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Data center limits",
+   "head": "123 measures in 33 jurisdictions: limits on building data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:misinformation:11",
+   "sentence": "11 measures in seven jurisdictions cite the fear that AI makes it easy to spread what is not true.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "AI misinformation",
+   "head": "11 measures name the same fear: AI misinformation",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2249,
+  "controlled": 757,
+  "offices": 100
+ }
+}

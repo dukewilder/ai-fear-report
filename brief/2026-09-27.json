@@ -1,0 +1,51 @@
+{
+ "edition": "2026-09-27",
+ "headline": "California requires water scarcity plan for data centers",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCalifornia bars cities and counties from approving a permit for a data center's construction or expansion unless the applicant provides a water scarcity plan and water supply assessment. Passed.\n\n119 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.\n\n196 measures in 43 jurisdictions cite the fear that anyone can now fake anyone.\n\n2,215 measures tracked. 748 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-09-27.png",
+ "alt": "A card from the AI Fear Report headed: California requires water scarcity plan for data centers. California bars cities and counties from approving a permit for a data center's construction or expansion unless the applicant provides a water scarcity plan and water supply assessment. 119 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them. 196 measures in 43 jurisdictions cite the fear that anyone can now fake anyone.",
+ "lines": [
+  {
+   "target": "os-1f701cd3-30f5-48b2-9295-79de5c9ab404",
+   "sentence": "California bars cities and counties from approving a permit for a data center's construction or expansion unless the applicant provides a water scarcity plan and water supply assessment.",
+   "quote": "prohibit a city, county, or city and county from approving a discretionary or ministerial permit or other entitlement",
+   "office": "",
+   "controls": "data-center-limits|mandatory-reporting",
+   "fears": "",
+   "jurisdiction": "California",
+   "url": "https://openstates.org/ca/bills/20252026/AB2469/",
+   "status": "passed",
+   "action": "Chaptered by Secretary of State - Chapter 436, Statutes of 2026.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:data-center-limits:119",
+   "sentence": "119 measures in 33 jurisdictions would pause data centers, or add conditions on building and running them.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Data center limits",
+   "head": "119 measures in 33 jurisdictions: limits on building data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:deepfakes:196",
+   "sentence": "196 measures in 43 jurisdictions cite the fear that anyone can now fake anyone.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Deepfakes",
+   "head": "196 measures name the same fear: Deepfakes",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2215,
+  "controlled": 748,
+  "offices": 101
+ }
+}

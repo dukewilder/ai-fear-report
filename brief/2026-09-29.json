@@ -1,0 +1,51 @@
+{
+ "edition": "2026-09-29",
+ "headline": "Department of Artificial Intelligence would regulate advanced artificial intelligence systems",
+ "text": "Here is how your fear of AI is being used to centralize power today.\n\nCongress would give the Department of Artificial Intelligence the power to regulate advanced artificial intelligence systems. Not passed.\n\n114 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.\n\n89 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.\n\n2,216 measures tracked. 746 carry a control, and they would hand new power to 101 offices.",
+ "image": "state/brief/2026-09-29.png",
+ "alt": "A card from the AI Fear Report headed: Department of Artificial Intelligence would regulate advanced artificial intelligence systems. Congress would give the Department of Artificial Intelligence the power to regulate advanced artificial intelligence systems. Held by Department of Artificial Intelligence. 114 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers. 89 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+ "lines": [
+  {
+   "target": "us-119-s-5493",
+   "sentence": "Congress would give the Department of Artificial Intelligence the power to regulate advanced artificial intelligence systems.",
+   "quote": "establish the Department of Artificial Intelligence and to provide for the regulation of advanced artificial intelligence systems",
+   "office": "Department of Artificial Intelligence",
+   "controls": "new-agency-powers",
+   "fears": "",
+   "jurisdiction": "Congress",
+   "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5493",
+   "status": "pending",
+   "action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+   "kind": "bill"
+  },
+  {
+   "target": "control:new-agency-powers:114",
+   "sentence": "114 measures in 32 jurisdictions would create an AI office, or hand an existing one new authority over AI or data centers.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "New agency powers",
+   "head": "114 measures in 32 jurisdictions: new authority over AI or data centers for a government body",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  },
+  {
+   "target": "fear:power-bills:89",
+   "sentence": "89 measures in 29 jurisdictions cite the fear that data centers are taking the power and the water.",
+   "quote": "",
+   "office": "",
+   "controls": "",
+   "meta": "Power bills and data centers",
+   "head": "89 measures name the same fear: Power bills and data centers",
+   "jurisdiction": "",
+   "url": "",
+   "status": ""
+  }
+ ],
+ "totals": {
+  "measures": 2216,
+  "controlled": 746,
+  "offices": 101
+ }
+}
